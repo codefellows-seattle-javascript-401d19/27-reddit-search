@@ -23,7 +23,7 @@ module.exports = {
       },
       {
         test: /\.scs#/,
-        laoder: 'style-loader!css-loader!sass-loader'
+        loader: 'style-loader!css-loader!sass-loader'
       },
     ]
   }
