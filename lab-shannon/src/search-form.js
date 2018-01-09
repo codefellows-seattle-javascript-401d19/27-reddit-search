@@ -1,5 +1,7 @@
 import React from 'react';
 
 class searchForm extends React.Component {
-  <button>Click Me</button>
+  constructor(props){
+    super(props);
+  }
 }
