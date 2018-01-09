@@ -14,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <button>Testing</button>
+        <SearchForm />
       </div>
     );
   }

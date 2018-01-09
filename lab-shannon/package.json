@@ -2,7 +2,7 @@
   "name": "lab-shannon",
   "version": "1.0.0",
   "description": "build webpage with search form and result list for reddit",
-  "main": "index.js",
+  "main": "webpack.config.js",
   "scripts": {
     "build": "webpack",
     "watch": "webpack-dev-server --inline --hot",
