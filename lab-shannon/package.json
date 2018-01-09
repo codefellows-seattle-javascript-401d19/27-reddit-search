@@ -4,6 +4,8 @@
   "description": "build webpage with search form and result list for reddit",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
+    "watch": "webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "shannon",
@@ -14,6 +16,8 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.8",
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
