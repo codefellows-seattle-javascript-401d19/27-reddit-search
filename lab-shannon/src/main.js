@@ -1,7 +1,7 @@
 // import './style/main'
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import SearchForm from './search-form';
+import SearchForm from './search-form';
 // import SearchResultList from './search-result-list';
 
 class App extends React.Component {
@@ -14,8 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        //{ <SearchForm />
-        // <SearchResultList />}
+        <SearchForm />
       </div>
     );
   }
