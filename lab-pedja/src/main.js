@@ -20,14 +20,10 @@ class App extends React.Component {
   }
 
   search(subreddit, limit) {
-    this.setState({loading: true, hasSearched: true, noResults: false});
-    console.log('hi there');
-    
+    this.setState({loading: true, hasSearched: true, noResults: false});    
     superagent.get(`https://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
       .then(res => {
-        const topics = res.body.data.children;
-        console.log(limit);
-               
+        const topics = res.body.data.children;                       
         this.setState({ topics: topics, hasSearched: true, loading: false });
       })
       .catch(() => {
