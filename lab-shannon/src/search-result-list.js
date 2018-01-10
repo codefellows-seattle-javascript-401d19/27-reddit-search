@@ -13,7 +13,14 @@ class SearchResultList extends React.Component {
     } else {
       return this.props.topics.map((result, index) => {
         const urlBase = 'https://www.reddit.com';
-        return <li key={index}><a href={`${urlBase}${result.data.permalink}`}>{result.data.title}</a></li>;
+        return (
+          <li key={index}>
+            <a href={`${urlBase}${result.data.permalink}`}>
+              <h1>{result.data.title}</h1>
+              <p>{result.data.ups}</p>
+            </a>
+          </li>
+        );
       });
     }
   }
