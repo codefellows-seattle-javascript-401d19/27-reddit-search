@@ -15,7 +15,7 @@ class SearchForm extends React.Component {
 
   search(event) {
     event.preventDefault();
-    
+
     this.props.submitSearch(this.state.subreddit, this.state.limit);
   }
 
@@ -56,4 +56,4 @@ class SearchForm extends React.Component {
   }
 }
 
-module.exports = SearchForm;
+export default SearchForm;
