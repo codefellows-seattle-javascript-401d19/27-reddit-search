@@ -24,7 +24,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then(responseData => responseData.data.children)
       .then(data => {
-        this.setState({ topics: data });
+        this.setState({ topics: data, loading: false, hasSearched: true });
       });
   }
 
