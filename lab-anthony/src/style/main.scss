@@ -3,3 +3,26 @@ $primary: goldenrod;
 body {
   background-color: $primary;
 }
+
+.form {
+  text-align: center;
+}
+
+.resultItem {
+}
+
+a:link {
+  color: black;
+}
+
+a:hover {
+  color: blue;
+}
+
+a:visited {
+  color: blue;
+}
+
+a {
+  font-size: 8px;
+}

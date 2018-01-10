@@ -12,7 +12,7 @@ class ResultList extends React.Component {
         <ul>
           {this.props.results.map((result, index) => {
             return (
-              <li key={index}>
+              <li key={index} className="resultItem">
                 <a href={result.data.url}>
                   <h1>
                     {result.data.title}

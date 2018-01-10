@@ -45,11 +45,13 @@ class SearchForm extends React.Component {
     };
 
     return(
-      <form onSubmit={this.searchReddit.bind(this)}>
-        <input style={this.props.handleError === true ? errorStyle : defaultStyle} type="text" value={this.state.search} onChange={this.handleSearchInput} />
-        <input style={this.props.handleError === true ? errorStyle : defaultStyle} type="number" value={this.state.limit} onChange={this.handleLimitInput} />
-        <input type="submit"/>
-      </form>
+      <div className="form">
+        <form onSubmit={this.searchReddit.bind(this)}>
+          <input style={this.props.handleError === true ? errorStyle : defaultStyle} type="text" value={this.state.search} onChange={this.handleSearchInput} />
+          <input style={this.props.handleError === true ? errorStyle : defaultStyle} type="number" value={this.state.limit} onChange={this.handleLimitInput} />
+          <input type="submit"/>
+        </form>
+      </div>
     );
   }
 }
