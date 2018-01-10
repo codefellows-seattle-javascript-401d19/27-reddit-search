@@ -1,30 +1,30 @@
-import React from 'react'
+import React from 'react';
 
 class SearchForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       subreddit: 'programming',
       limit: 20,
-    }
+    };
 
-    this.search = this.search.bind(this)
-    this.handleLimitInput = this.handleLimitInput.bind(this)
-    this.handleSubredditInput = this.handleSubredditInput.bind(this)
+    this.search = this.search.bind(this);
+    this.handleLimitInput = this.handleLimitInput.bind(this);
+    this.handleSubredditInput = this.handleSubredditInput.bind(this);
   }
 
   search(event) {
-    event.preventDefault()
+    event.preventDefault();
     
-    this.props.submitSearch(this.state.subreddit, this.state.limit)
+    this.props.submitSearch(this.state.subreddit, this.state.limit);
   }
 
   handleSubredditInput(event) {
-    this.setState({ subreddit: event.target.value })
+    this.setState({ subreddit: event.target.value });
   }
 
   handleLimitInput(event) {
-    this.setState({ limit: event.target.value })
+    this.setState({ limit: event.target.value });
   }
 
   render() {
@@ -52,8 +52,8 @@ class SearchForm extends React.Component {
           <input type="submit" />
         </form>
       </div>
-    )
+    );
   }
 }
 
-module.exports = SearchForm
+module.exports = SearchForm;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -12,4 +12,4 @@ class SearchForm extends React.Component {
   }
 }
 
-module.exports = SearchForm
+export default SearchForm;
