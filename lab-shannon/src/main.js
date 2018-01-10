@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchForm from './search-form';
 // import SearchResultList from './search-result-list';
-// import reddit from 'reddit';
 
 class App extends React.Component {
   constructor(props){
@@ -15,8 +14,7 @@ class App extends React.Component {
   }
 
   search(filter) {
-    // console.log(reddit);
-    // this.setState({topics: reddit.fetch});
+    // this.setState({topics: });
   }
 
   render() {

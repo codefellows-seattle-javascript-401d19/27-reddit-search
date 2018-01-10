@@ -5,6 +5,7 @@ class searchForm extends React.Component {
     super(props);
 
     this.state = {filter: '', resultLimit:'1'};
+
     this.filterInput = this.filterInput.bind(this);
     this.runSearch = this.runSearch.bind(this);
     this.chooseNumber = this.chooseNumber.bind(this);
@@ -15,6 +16,8 @@ class searchForm extends React.Component {
   }
 
   runSearch() {
+    const xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', `www.reddit.com/r${this.state.filter}.json?limit=${this.state.resultLimit}`);
     this.setState(this.props.submitSearch(this.state.filter));
   }
 
