@@ -9,26 +9,35 @@ class App extends React.Component {
 		super(props)
 
 		this.state = {
-			results: [],
+			topics: [],
 			searchDone: false,
 			loading: false,
+			error: false,
+			errorClass: '',
 		}
 		this.search = this.search.bind(this);
 	}
 	search(subReddit, maxResults) {
-		console.log()
-		this.setState({ loading: true, searchDone: true })
+		this.setState({ loading: true, searchDone: true, error: false, className: 'none'})
 		fetch(`http://www.reddit.com/r/${subReddit}.json?limit=${maxResults}`)
+			.then(this.handleErrors)
 			.then((response) => response.json())
 			.then((responseJson) => responseJson.data.children)
 			.then(foo => {
 			this.setState({ results: foo, loading: false, searchDone: true })
 			})
 			.catch((error) => {
+				this.setState({loading: false, searchDone: true, error: true})
 				console.error(error);
 			});
 	}
-	
+
+	handleErrors(response) {
+	if (!response.ok) {
+		throw Error(response.statusText);
+	}
+	return response;
+}
 
 	render() {
 		return (
@@ -36,12 +45,11 @@ class App extends React.Component {
 				<SearchForm 
 					submitSearch={this.search} />
 				<SearchResultList
-					results={this.state.results}
+					topics={this.state.topics}
 					searchDone={this.state.searchDone}
 					loading={this.state.loading} />
 			</div>
 		)
-
 	}
 }
 

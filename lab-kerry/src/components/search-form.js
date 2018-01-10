@@ -16,39 +16,38 @@ class SearchForm extends React.Component {
 		this.setState(
 			{subReddit: event.target.value}
 		);
-		console.log(this.state.subReddit);
 	}
 
 	handleMaxResults(event) {
 		this.setState(
 			{maxResults: event.target.value}
 		);
-		console.log(this.state.maxResults);
 	}
 
 
 	search(event) {
 		event.preventDefault();
 		this.props.submitSearch(this.state.subReddit, this.state.maxResults)
-		console.log(this.state.subReddit);
 		}
 
 	render() {
 		return ( 
-			<div>
+			<div id="reddit-search">
 				<form onSubmit={this.search}>
-					<p><input type="text" 
+					<p><input id="subreddit-search" type="text" 
 							placeholder="Which Sub-Reddit??" 
 							value={this.state.subReddit} 
-							onChange ={this.handleSubReddit} />
+							onChange ={this.handleSubReddit}
+							 />
 					</p>
 
-					<p><input type="number" 
+					<p><input id="max-results-search" type="number" 
 							min="0" 
 							max="100" 
 							placeholder="Max Results (0 - 100)" 
 							value={this.state.maxResults} 
-							onChange={this.handleMaxResults} /> 
+							onChange={this.handleMaxResults}
+							 /> 
 					</p>
 					<input type="submit" />
 			</form>	
