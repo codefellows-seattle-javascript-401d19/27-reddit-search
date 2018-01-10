@@ -22,7 +22,6 @@ class App extends React.Component {
     this.setState({loading: true, hasSearched: true});
     superagent.get(`https://www.reddit.com/r/${topic}.json?limit=${limit}`)
       .then(response => {
-        console.log(response.body.data.children);
         this.setState({
           topics: response.body.data.children,
         });

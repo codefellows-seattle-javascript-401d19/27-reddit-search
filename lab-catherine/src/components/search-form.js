@@ -18,7 +18,7 @@ class SearchForm extends React.Component {
     this.setState({topic: event.target.value});
   }
 
-  handleLimit(event) {
+  handleLimit(event) {  
     this.setState({limit: event.target.value});
   }
 

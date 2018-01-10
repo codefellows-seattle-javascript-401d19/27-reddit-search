@@ -10,11 +10,9 @@ class SearchResultList extends React.Component {
       return <p>No results.</p>;
     } else {
       return this.props.results.map((result, index) => {
-        console.log(this.props.results);
-        console.log(result.data.url);
         return (
-          <div key={index}>
-            <li> <a href={result.data.url}>{result.data.title}</a></li>
+          <div className="sub-reddit" key={index}>
+            <li> <a target="blank" href={result.data.url}>{result.data.title} <p>Up votes: {result.data.ups}</p></a></li>
           </div>
         );
       });
@@ -24,7 +22,7 @@ class SearchResultList extends React.Component {
   render() {
     return (
       <div>
-        <h1>List of Top 10 Topics:</h1>
+        <h1>List of Reddit Topics:</h1>
         {this.subRedditList()}
       </div>
     );

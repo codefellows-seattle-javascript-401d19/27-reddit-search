@@ -1,6 +1,7 @@
 $color-primary: darkSalmon;
 $color-secondary: darkSlateGray;
 $color-tertiary: cornSilk;
+$spacing: 1em;
 
 * {
   box-sizing: border-box;
@@ -11,5 +12,36 @@ body {
   color: $color-secondary;
   background-color: $color-primary;
   font-size: 1em;
+  font-family: Helvetica;
   margin-left: 40px;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: $color-secondary;
+}
+
+li {
+  list-style-type: none;
+  padding: $spacing;
+  margin: $spacing;
+  border: 2px solid black;
+  background-color: $color-tertiary;
+  border-radius: 10px;
+}
+
+button, input {
+  background-color: $color-tertiary;
+  border: none;
+  color: $color-primary;
+  text-align: center;
+  padding: 10px 25px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+label {
+  padding-right: 15px;
 }
