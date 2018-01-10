@@ -3,3 +3,9 @@ $primary: blue;
 body {
   background-color: $primary;
 }
+
+.result-map {
+  background-color: white;
+  border: solid black 3px;
+  margin: 5px;
+}

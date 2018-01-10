@@ -7,24 +7,24 @@ class SearchForm extends React.Component {
     super(props)
 
     this.state = {
-      filter: ''
+      subreddit: ''
     }
-    this.handleFilter = this.handleFilter.bind(this);
+    this.handleSubreddit = this.handleSubreddit.bind(this);
     this.search = this.search.bind(this)
   }
 
-  handleFilter(event) {
-    this.setState({filter: event.target.value})
+  handleSubreddit(event) {
+    this.setState({subreddit: event.target.value})
   }
 
   search() {
-    this.props.submitSearch(this.state.filter)
+    this.props.submitSearch(this.state.subreddit)
   }
 
   render(){
     return (
         <div>
-          <input type="text" value={this.state.filter} size="80" onChange={this.handleFilter} placeholder="type subreddit here"/>
+          <input type="text" value={this.state.subreddit} size="40" onChange={this.handleSubreddit} placeholder="type subreddit here"/>
           <button onClick={this.search}>Search</button>
         </div>
     )
