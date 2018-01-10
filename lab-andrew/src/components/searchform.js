@@ -20,7 +20,6 @@ class SearchForm extends React.Component {
   }
 
   handleNumber(event){
-    console.log('changing number', event.target.value);
     this.setState({number: event.target.value});
   }
 
@@ -31,11 +30,17 @@ class SearchForm extends React.Component {
   render(){
     return <div id="form">
       <label htmlFor="subredditname">Subreddit Name</label>
-      <input id="subredditname" type="text" value={this.state.topic} onChange={this.handleTopic}/><br/>
+      <input 
+        className={this.props.hasError ? 'error' : ''}
+        id="subredditname" 
+        type="text" 
+        value={this.state.topic} 
+        onChange={this.handleTopic}/>
+      <br/>
       <label htmlFor="resultamount">Number of Results</label>
       <input id="resultamount" type="number" min="1" max="100" value={this.state.number} onChange={this.handleNumber}/><br/>
       <button onClick={this.search}>Search</button>
-    </div>;
+    </div>; 
   }
 }
 

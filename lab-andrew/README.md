@@ -1,6 +1,7 @@
 # Lab 27 Reddit Search
 
 ## Overview
+This is a subreddit search app. You can input the name of a subreddit and a number of results, and it will return that many top results from that subreddit.
 
 ***
 ## Getting Started
