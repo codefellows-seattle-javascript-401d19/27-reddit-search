@@ -26,7 +26,7 @@ class App extends React.Component {
         if (response.status !== 200) {
           throw new Error('Bad Request');
         }
-        response.json();
+        return response.json();
       })
       .then(responseData => responseData.data.children)
       .then(data => {

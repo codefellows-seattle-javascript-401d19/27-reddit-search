@@ -1,21 +1,15 @@
 import React from 'react';
 
-class SearchForm extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.topicList = this.topicList.bind(this);
-  }
-
-  topicList() {
-    if (!this.props.hasSearched) {
+const SearchForm = ({ hasSearched, loading, noResults, topics }) => {
+  const topicList = () => {
+    if (!hasSearched) {
       return <div></div>;
-    } else if (this.props.loading) {
+    } else if (loading) {
       return <p className='topics'>Loading...</p>;
-    } else if (this.props.noResults) {
+    } else if (noResults) {
       return <p className='topics'>No results</p>;
     } else {
-      return this.props.topics.map((topic, index) => {
+      return topics.map((topic, index) => {
         return <div className='topics' key={index}>
           <a href={topic.data.url}>
             <div>
@@ -27,15 +21,13 @@ class SearchForm extends React.Component {
         </div>;
       });
     }
-  }
+  };
 
-  render() {
-    return (
-      <div id='topic-list'>
-        {this.topicList()}
-      </div>
-    );
-  }
-}
+  return (
+    <div id='topic-list'>
+      {topicList()}
+    </div>
+  );
+};
 
 export default SearchForm;
