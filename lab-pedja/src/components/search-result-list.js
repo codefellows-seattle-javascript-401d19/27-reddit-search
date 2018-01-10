@@ -8,7 +8,9 @@ class ResultList extends React.Component {
   }
 
   postList() {
-    if (this.props.loading) {      
+    if (!this.props.hasSearched) {  
+      return <div></div>      
+    } else if (this.props.loading) {      
       return <p>Loading...</p>
     } else if (this.props.noResults) {
       return <p>No results.</p>

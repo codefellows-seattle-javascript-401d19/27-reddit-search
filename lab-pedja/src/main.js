@@ -2,15 +2,17 @@ import './style/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import superagent from 'superagent';
+
 import SearchForm from './components/search-form';
 import ResultList from './components/search-result-list';
 
 class App extends React.Component {
   constructor(props){
     super(props);
+
     this.state = {
       topics: [],
-      // hasSearched: false,
+      hasSearched: false,
       loading: false,
       noResults: false
     };
@@ -19,14 +21,14 @@ class App extends React.Component {
   }
 
   search(subreddit, limit) {
-    this.setState({loading: true, noResults: false});
+    this.setState({loading: true, hasSearched: true, noResults: false});
     superagent.get(`https://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
       .then(res => {
         console.log('inside .then');
         const topics = res.body.data.children;
         console.log(topics);
         
-        this.setState({ topics: topics, loading: false });
+        this.setState({ topics: topics, hasSearched: true, loading: false });
       })
       .catch(() => {
         this.setState({ noResults: true });
@@ -39,7 +41,7 @@ class App extends React.Component {
         <SearchForm submitSearch={this.search} />
         <ResultList
           topics={this.state.topics}
-          // hasSearched={this.state.hasSearched}
+          hasSearched={this.state.hasSearched}
           loading={this.state.loading} 
           noResults={this.state.noResults} 
         />
