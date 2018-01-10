@@ -10,6 +10,7 @@ class SearchForm extends React.Component {
     this.state = { 
       term: 'doge', 
       limit: 25,
+      error: ' ',
     };
 
     this.searchTerm = this.searchTerm.bind(this);
@@ -22,9 +23,11 @@ class SearchForm extends React.Component {
       .then(parseRedditJson)
       .then(response => {
         this.props.app.setState({redditResponse: response});
+        this.setState({error: ' '});
       })
       .catch(error => {
         this.props.app.setState({redditResponse: error.message});
+        this.setState({error: 'error '});
       });
   }
 
@@ -41,9 +44,9 @@ class SearchForm extends React.Component {
   render() {
     return (
     <div>
-      <p className='pre-text-box'>reddit.com/r/</p><input onChange={this.searchTerm} value={this.state.term} type='text' placeholder='Enter Search Here' />
+      <p className='pre-text-box'>reddit.com/r/</p><input className={this.state.error} onChange={this.searchTerm} value={this.state.term} type='text' placeholder='Enter Search Here' />
 
-      <p className='pre-text-box'>SearchLimit:</p><input onChange={this.limitEr}  value={this.state.limit} type='number' placeholder='Limit' max='100' min='0' />
+      <p className='pre-text-box'>SearchLimit:</p><input className={this.state.error} onChange={this.limitEr}  value={this.state.limit} type='number' placeholder='Limit' max='100' min='0' />
 
       <button onClick={() => this.fetchReddit(this.state.term, this.state.limit)}>Search</button>
     </div>      

@@ -5,7 +5,7 @@ class SearchResultList extends React.Component {
     if (this.props.redditArray.includes('Failed to fetch')) {
       return (
         <div>
-          <p>No Results Found</p>
+          <p className='no-results'>No Results Found</p>
         </div>
       )
     } 
