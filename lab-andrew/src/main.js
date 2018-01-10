@@ -29,8 +29,7 @@ class App extends React.Component {
         }
         return response.json();
       })
-      .then(obj => obj.data.children)
-      .then(array => this.setResults(array))
+      .then(obj => this.setResults(obj.data.children))
       .catch(() => {
         return this.setState({hasError: true, loading:false});
       });
