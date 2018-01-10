@@ -7,7 +7,7 @@ class SearchResultList extends React.Component {
         <div>
           <p className='no-results'>No Results Found</p>
         </div>
-      )
+      );
     } 
     
     else if (this.props.redditArray.length > 0) {
@@ -34,9 +34,9 @@ class SearchResultList extends React.Component {
             <p className='subreddit'>/r/{each.subreddit}</p>
 
           </div>   
-        )
+        );
       }
-    )} 
+      );}
     
     else
       return;
@@ -47,7 +47,7 @@ class SearchResultList extends React.Component {
       <div>
         {this.buildResults()}
       </div>
-    )
+    );
   }
 }
 

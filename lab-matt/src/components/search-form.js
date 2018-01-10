@@ -5,7 +5,7 @@ const URL_EXTENSION = '.json?limit=';
 
 class SearchForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = { 
       term: 'doge', 
@@ -47,14 +47,14 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-    <form onSubmit={this.fetchReddit}>
-      <p className='pre-text-box'>reddit.com/r/</p><input className={this.state.error} onChange={this.searchTerm} name='subreddit' value={this.state.term} type='text' placeholder='Enter Search Here' />
+      <form onSubmit={this.fetchReddit}>
+        <p className='pre-text-box'>reddit.com/r/</p><input className={this.state.error} onChange={this.searchTerm} name='subreddit' value={this.state.term} type='text' placeholder='Enter Search Here' />
 
-      <p className='pre-text-box'>SearchLimit:</p><input className={this.state.error} onChange={this.limitEr} name='limit' value={this.state.limit} type='number' placeholder='Limit' max='100' min='0' />
+        <p className='pre-text-box'>SearchLimit:</p><input className={this.state.error} onChange={this.limitEr} name='limit' value={this.state.limit} type='number' placeholder='Limit' max='100' min='0' />
 
-      <button>Search</button>
-    </form>      
-    )
+        <button>Search</button>
+      </form>      
+    );
   }
 }
 
@@ -64,7 +64,7 @@ function parseRedditJson(response) {
   return response.json()
     .then(responsePlus => {
       return responsePlus.data.children
-      .filter(result => !result.data.stickied)
-      .map(result => result.data);
+        .filter(result => !result.data.stickied)
+        .map(result => result.data);
     });
 }

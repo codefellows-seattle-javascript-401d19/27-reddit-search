@@ -6,7 +6,7 @@ import SearchResultList from './components/search-result-list';
 
 class App extends React.Component {
   constructor(props) {
-    super(props) 
+    super(props);
 
     this.state = { 
       redditResponse: [],
@@ -20,7 +20,7 @@ class App extends React.Component {
         <SearchForm app={this} getReddit={this.renderReddit} />
         <SearchResultList redditArray={this.state.redditResponse}/>
       </div>
-    )
+    );
   }
 }
 
