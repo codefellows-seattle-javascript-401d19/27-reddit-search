@@ -22,15 +22,15 @@ class SearchForm extends React.Component {
         if (response.status == 200){
           let resultJson = response.json();
           this.setState(this.props.submitSearch(resultJson));
-        } else {
-          return (
-            <div className='error'></div>
-          );
         }
+      })
+      .catch(error => {
+        let root = document.getElementById('root');
+        root.className = 'error';
       });
   }
 
-  chooseNumber(event) {
+  chooseNumber(event){
     this.setState({resultLimit: event.target.value});
   }
 
