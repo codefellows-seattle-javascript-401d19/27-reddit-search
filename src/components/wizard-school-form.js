@@ -10,9 +10,7 @@ class WizardForm extends React.Component {
 
         this.state = {
             name: ''
-        }
-
-        
+        }  
     }
 
     handleInputChange() {
