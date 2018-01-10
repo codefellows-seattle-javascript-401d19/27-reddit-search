@@ -11,8 +11,10 @@ class SearchResultList extends React.Component {
 		return <p>No results.</p>
 	} else {
 		return this.props.results.map((result, index) => { 
-			return <div className="sub-reddit" key={index}> SubReddit: {result.subReddit} &nbsp;
-			Posts: {result.posts}
+			console.log('subreddit', result)
+			return <div className="sub-reddit" key={index}> 
+			<pre>Post Name: {result.data.title}</pre>
+			<pre>Upvotes: {result.data.ups}</pre>
 			</div>
 		});
 	}
