@@ -2,13 +2,13 @@ const path = require('path');
 
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const htmlWebpackPluginConfig = new htmlWebpackPlugin({
-  template: './src.index.html',
+  template: './src/index.html',
   filename: 'index.html',
   inject: '#content'
 });
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/main.js',
   output: {
     path: path.resolve('build'),
     filename: 'bundle.[hash].js'
@@ -19,7 +19,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        excule: /node_modules/
+        exclude: /node_modules/
       },
       {
         test: /\.scss$/,
