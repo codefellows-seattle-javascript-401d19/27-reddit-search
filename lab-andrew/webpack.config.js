@@ -13,7 +13,7 @@ module.exports = {
     new HTMLPlugin({ template: `${__dirname}/src/index.html` }),
     new ExtractPlugin('bundle.[hash].css'),
   ],
-  module: { // loaders
+  module: { 
     rules: [
       {
         test: /\.js$/,
