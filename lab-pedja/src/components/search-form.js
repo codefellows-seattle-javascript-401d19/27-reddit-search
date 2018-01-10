@@ -17,6 +17,8 @@ class SearchForm extends React.Component {
   }
 
   handleLimit(event) {
+    if (event.target.value < 0) event.target.value = 0;
+    if (event.target.value > 100) event.target.value = 100;
     this.setState({limit: event.target.value})
   }
 
@@ -27,23 +29,25 @@ class SearchForm extends React.Component {
   render() {
     return (
       <div>
-        <input 
-          type="text" 
-          placeholder="subreddit search"
-          value={this.state.subreddit} 
-          onChange={this.handleSubreddit} 
-        />
-        <input 
-          type="text" 
-          placeholder="limit results"
-          value={this.state.limit} 
-          onChange={this.handleLimit} 
-        />
-        <button onClick={this.search}>Search</button>
+        <form onSubmit={this.search}>
+          <input 
+            type="text" 
+            placeholder="subreddit search"
+            value={this.state.subreddit} 
+            onChange={this.handleSubreddit} 
+          />
+          <input 
+            type="number" 
+            placeholder="limit results"
+            value={this.state.limit} 
+            onChange={this.handleLimit} 
+          />
+          <input type="submit" />
+        </form>
       </div>
     )
   }
 
 }
 
-module.exports = SearchForm
+module.exports = SearchForm;

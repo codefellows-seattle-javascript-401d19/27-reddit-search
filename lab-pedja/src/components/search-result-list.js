@@ -1,20 +1,31 @@
 import React from 'react'
 
 class ResultList extends React.Component {
-  languageList() {
-    if (!this.props.hasSearched) {
-      return <div></div>
-    } else if (this.props.loading) {
+  constructor(props){
+    super(props)
+
+    this.postList = this.postList.bind(this);
+  }
+
+  postList() {
+    if (this.props.loading) {      
       return <p>Loading...</p>
-    } else if (this.props.results.length === 0) {
+    } else if (this.props.noResults) {
       return <p>No results.</p>
     } else {
-      return this.props.results.map((result, index)=> {
-        return <div className="language-rating" key={index}>
-          Rating: {result.rating}
-          &nbsp;
-          Language: {result.language}
-        </div>
+      return this.props.topics.map((topic, index)=> {
+        return (
+          <ul>
+            <li key={index}>
+              <a href={topic.data.url}>
+                <h1>
+                  {topic.data.title}
+                  <p>{topic.data.ups}</p>
+                </h1>
+              </a>
+            </li>
+          </ul>
+        )
       });
     }
   }
@@ -22,10 +33,11 @@ class ResultList extends React.Component {
   render() {
     return (
       <div>
-        {this.languageList()}
+        <h1>List of Topics</h1>
+        {this.postList()}
       </div>
     )
   }
 }
 
-module.exports = ResultList
+module.exports = ResultList;
