@@ -1,7 +1,7 @@
 import React from 'react';
 
 class SearchResultList extends React.Component {
-  constructor(props) {    // the props passed in are topics array and hasSearched boolean
+  constructor(props) {    // the props passed in are the topics array and hasSearched boolean
     super(props);
   }
 

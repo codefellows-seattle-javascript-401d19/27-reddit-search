@@ -12,10 +12,12 @@ class App extends React.Component {
       topics: [],
       hasSearched: false,
     };
+
+    this.search = this.search.bind(this);
   }
 
   search(filter) {
-    console.log(`groot`);
+    console.log(this.state);
     // this.setState({topics: [], hasSearched: true});
   }
 
