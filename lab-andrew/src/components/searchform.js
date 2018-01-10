@@ -35,10 +35,19 @@ class SearchForm extends React.Component {
         id="subredditname" 
         type="text" 
         value={this.state.topic} 
-        onChange={this.handleTopic}/>
+        onChange={this.handleTopic}
+      />
       <br/>
       <label htmlFor="resultamount">Number of Results</label>
-      <input id="resultamount" type="number" min="1" max="100" value={this.state.number} onChange={this.handleNumber}/><br/>
+      <input 
+        id="resultamount" 
+        type="number" 
+        min="1" 
+        max="100" 
+        value={this.state.number} 
+        onChange={this.handleNumber}
+      />
+      <br/>
       <button onClick={this.search}>Search</button>
     </div>; 
   }
