@@ -13,7 +13,8 @@ class App extends React.Component {
     this.state = {
       topics: [],
       hasSearched: false,
-      loading: false
+      loading: false,
+      failedSearch: false,
     }
 
     this.search = this.search.bind(this);
@@ -28,18 +29,22 @@ class App extends React.Component {
         console.log(response.body.data.children)
         return this.setResults(response.body.data.children)
       })
+      .catch(this.setState({failedSearch: true, loading: false}))
 
     }, 1750)
   }
 
   setResults(newResults){
-    this.setState({topics: newResults, loading: false})
+    this.setState({topics: newResults, loading: false, failedSearch: false})
   }
 
   render() {
     return (
       <div>
-      <SearchForm submitSearch={this.search}/>
+      <SearchForm
+        submitSearch={this.search}
+        failedSearch={this.state.failedSearch}
+      />
       <ResultList
         topics={this.state.topics}
         hasSearched = {this.state.hasSearched}
