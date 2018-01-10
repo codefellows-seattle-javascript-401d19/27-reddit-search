@@ -16,7 +16,7 @@ class App extends React.Component {
     };
   }
 
-  
+
  
   render(){
     return(
@@ -30,3 +30,4 @@ class App extends React.Component {
   
 }
 
+ReactDOM.render(<App/>, document.getElementById('root'))
