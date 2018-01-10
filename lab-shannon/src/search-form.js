@@ -15,11 +15,11 @@ class searchForm extends React.Component {
   }
 
   runSearch() {
-    this.setState();
+    this.setState(this.props.submitSearch(this.state.filter));
   }
 
-  chooseNumber() {
-    this.setState();
+  chooseNumber(event) {
+    this.setState({resultLimit: event.target.value});
   }
 
   render() {
