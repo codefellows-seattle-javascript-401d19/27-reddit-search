@@ -3,10 +3,7 @@
 import React from 'react';
 
 class SearchResultList extends React.Component {
-  constructor(props) {
-    super(props)
-    
-  }
+  
 
   topicsList(){
     if (!this.props.hasSearched){
@@ -16,7 +13,7 @@ class SearchResultList extends React.Component {
     } else if (this.props.SearchResultsFromReddit.length === 0) {
       return <p> No results found. </p>
     } else {
-      return this.state.SearchResultsFromReddit.map((SearchResultsFromReddit, index) => {
+      return this.props.SearchResultsFromReddit.map((SearchResultsFromReddit, index) => {
         return <div key={index}>
           <li>Subreddit Title : {SearchResultsFromReddit.topic}</li>
           <a href=''></a>
@@ -31,6 +28,7 @@ class SearchResultList extends React.Component {
   render() {
     return (
       <div>
+        <h2>List of Results</h2>
         <ul>
           {this.topicsList()}
         </ul>

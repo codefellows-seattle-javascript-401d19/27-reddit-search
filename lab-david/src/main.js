@@ -16,37 +16,38 @@ class App extends React.Component {
       loading: false
     }
 
-    // this.search = this.search.bind(this);
-    // this.setTopics = this.setTopics.bind(this);
+    this.search = this.search.bind(this);
+    this.setTopics = this.setTopics.bind(this);
   }
   
-  // search(filter='') {
-  //   this.setState({loading: true, hasSearched: true})
-  //     let newTopics = [
-  //       {title: 'title of the thing'},
-  //     ].filter(result => {
-  //       return result.language.includes(filter)
-  //     })
-  //     this.setTopics(newTopics)
-  // }
+  search(topic, limit) {
+    this.setState({loading: true, hasSearched: true});
+    fetch(`http://www.reddit.com/r/${topic}.json?limit=${limit}`)
+      .then(response => {
+        this.setState({
+          SearchResultsFromReddit: response.body.data.children,
+        });
+      });
+  }
 
-  // setTopics(newTopics) {
-  //   this.setState({topics: newTopics, loading: false})
-  // }
+  setTopics(newTopics) {
+    this.setState({SearchResultsFromReddit: newTopics, loading: false})
+  }
 
   render() {
     return (
-      // <div>
-      // <SearchForm submitSearch={this.search} />
-      // <SearchResultList
-      //   results={this.state.results}
-      //   hasSearched={this.state.hasSearched}
-      //   loading={this.state.loading} />
-      // </div>
       <div>
-        <SearchForm/>
-        <SearchResultList/>
+      <h1>Subreddit Topic Grabber</h1>
+      <SearchForm submitSearch={this.search} />
+      <SearchResultList
+        results={this.state.SearchResultsFromReddit}
+        hasSearched={this.state.hasSearched}
+        loading={this.state.loading} />
       </div>
+      // <div>
+      //   <SearchForm/>
+      //   <SearchResultList/>
+      // </div>
     )
   }
 }

@@ -13,8 +13,7 @@ class SearchForm extends React.Component {
 
     this.handleTopicTextBox = this.handleTopicTextBox.bind(this);
     this.handleNumbersTextBox = this.handleNumbersTextBox.bind(this);
-
-    // this.getTopicsFromReddit = this.getTopicsFromReddit.bind(this);
+    this.getTopicsFromReddit = this.getTopicsFromReddit.bind(this);
   }
 
   handleTopicTextBox(event) {
@@ -26,26 +25,20 @@ class SearchForm extends React.Component {
   }
 
 
-  getTopicsFromReddit() {
-    // go to webpage http://www.reddit.com/r/${searchInputName}.json?limit=${SearchResultsNumberLimit}
-    // if server response is 200 then drop server.response into json file.
-    // parse over json and find titles and pull them out. push into topics
-  fetch(`http://www.reddit.com/r/${searchInputName}.json?limit=${SearchResultsNumberLimit}`)
-    return 
-    // .then(function(response) {
-    // return response.something()
-  }
+  getTopicsFromReddit(searchInputName, SearchResultsNumberLimit) {
+    this.props.submitSearch(this.state.topic, this.state.limit);
+    }
   // )
-  }
+  
 
   render() {
     return (
       <div>
-        <input type="text" value={this.state.searchInputName} placeholder="Insert subreddit board name here" onChange={this.handleTopicTextBox}/>
-        <div>
-          <input type="number" min="0" max="99" value={this.state.SearchResultsNumberLimit} placeholder="Insert number of results desired" onChange={this.handleNumbersTextBox}/>
-        </div>
-        <button onClick={this.getTopicsFromReddit}>Search</button>
+      <form>
+          <input type="text" value={this.state.searchInputName} placeholder="Insert subreddit board name here" onChange={this.handleTopicTextBox}/>
+            <input type="text" value={this.state.SearchResultsNumberLimit} placeholder="Insert number of results desired" onChange={this.handleNumbersTextBox}/>
+          <button onSubmit={this.getTopicsFromReddit}>Search</button>
+        </form>
       </div>
     )
   }
