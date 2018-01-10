@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 
 class SearchForm extends React.Component {
@@ -27,11 +29,11 @@ class SearchForm extends React.Component {
   }
 
   render(){
-    return <div>
-      <label htmlFor="subredditname">Sub-Reddit Name</label>
-      <input id="subredditname" type="text" value={this.state.topic} onChange={this.handleTopic}/>
+    return <div id="form">
+      <label htmlFor="subredditname">Subreddit Name</label>
+      <input id="subredditname" type="text" value={this.state.topic} onChange={this.handleTopic}/><br/>
       <label htmlFor="resultamount">Number of Results</label>
-      <input id="resultamount" type="number" min="1" max="100" value={this.state.number} onChange={this.handleNumber}/>
+      <input id="resultamount" type="number" min="1" max="100" value={this.state.number} onChange={this.handleNumber}/><br/>
       <button onClick={this.search}>Search</button>
     </div>;
   }

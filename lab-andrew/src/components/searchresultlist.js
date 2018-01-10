@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 
 class SearchResultList extends React.Component {
@@ -12,7 +14,7 @@ class SearchResultList extends React.Component {
       return this.props.results.map((result, index) => {
         return <li className="result-list-item" key={index}>
           <a href={result.data.url}>
-            <h1>{result.data.title}</h1>
+            <h2>{result.data.title}</h2>
             <p>{result.data.ups}</p>
           </a>
         </li>;
