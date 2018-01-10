@@ -22,13 +22,18 @@ class App extends React.Component {
   search(subreddit, limit) {
     this.setState({ loading: true, hasSearched: true, noResults: false });
     fetch(`http://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
-      .then(response => response.json())
+      .then(response => {
+        if (response.status !== 200) {
+          throw new Error('Bad Request');
+        }
+        response.json();
+      })
       .then(responseData => responseData.data.children)
       .then(data => {
         this.setState({ topics: data, loading: false, hasSearched: true });
       })
       .catch(() => {
-        this.setState({ noResults: true });
+        this.setState({ loading: false, noResults: true });
       });
   }
 

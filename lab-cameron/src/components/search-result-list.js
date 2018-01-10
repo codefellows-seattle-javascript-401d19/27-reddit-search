@@ -8,7 +8,6 @@ class SearchForm extends React.Component {
   }
 
   topicList() {
-    console.log('fffff');
     if (!this.props.hasSearched) {
       return <div></div>;
     } else if (this.props.loading) {
