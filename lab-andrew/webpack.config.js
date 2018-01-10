@@ -1,7 +1,7 @@
-'use strict'
+'use strict';
 
-const HTMLPlugin = require('html-webpack-plugin')
-const ExtractPlugin = require('extract-text-webpack-plugin')
+const HTMLPlugin = require('html-webpack-plugin');
+const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: `${__dirname}/src/main.js`,
@@ -18,7 +18,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
@@ -34,8 +34,8 @@ module.exports = {
               },
             },
           ],
-        })
+        }),
       },
     ],
-  }
-}
+  },
+};
