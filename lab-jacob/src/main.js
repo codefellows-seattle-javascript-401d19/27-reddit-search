@@ -15,6 +15,18 @@ class App extends React.Component {
 
     };
   }
+
+  
  
+  render(){
+    return(
+      <div>
+      <searchForm submitSearch={this.search} /> 
+      <searchResultList
+       results = {this.state.results} /> 
+      </div>
+    )
+  }
   
 }
+
