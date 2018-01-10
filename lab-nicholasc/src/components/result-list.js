@@ -13,8 +13,9 @@ class ResultList extends React.Component { //TODO: delete constructor and factor
     }else {
       return this.props.topics.map((result, index) => {
         return <div className="result-map" key={index}>
-        <p>Language: {result.language}</p>
-        <p>Rating: {result.rating}</p></div>
+        <img src={result.data.thumbnail}></img>
+        <a href={result.data.url}><h3>{result.data.title}</h3></a>
+        <p>Score: {result.data.score}</p></div>
     });
   }
 }

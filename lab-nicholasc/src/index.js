@@ -25,7 +25,7 @@ class App extends React.Component {
   setTimeout(() => {
     return superagent.get(`https://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
       .then(response => {
-
+        console.log(response.body.data.children)
         return this.setResults(response.body.data.children)
       })
 

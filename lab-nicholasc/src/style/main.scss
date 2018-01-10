@@ -8,4 +8,20 @@ body {
   background-color: white;
   border: solid black 3px;
   margin: 5px;
+  height: 11em;
+}
+
+input {
+  display: block;
+}
+
+h3 {
+  display: inline-block;
+  max-width: 70%;
+}
+
+img {
+  height: 10em;
+  max-width: 30%;
+  float: right;
 }

@@ -7,9 +7,11 @@ class SearchForm extends React.Component {
     super(props)
 
     this.state = {
-      subreddit: ''
+      subreddit: '',
+      limit: 20,
     }
     this.handleSubreddit = this.handleSubreddit.bind(this);
+    this.handleLimit = this.handleLimit.bind(this);
     this.search = this.search.bind(this)
   }
 
@@ -17,8 +19,13 @@ class SearchForm extends React.Component {
     this.setState({subreddit: event.target.value})
   }
 
+  handleLimit(event) {
+    console.log(event.target.value)
+    this.setState({limit: event.target.value})
+  }
+
   search() {
-    this.props.submitSearch(this.state.subreddit)
+    this.props.submitSearch(this.state.subreddit, this.state.limit)
   }
 
   render(){
@@ -26,6 +33,7 @@ class SearchForm extends React.Component {
         <div>
           <input type="text" value={this.state.subreddit} size="40" onChange={this.handleSubreddit} placeholder="type subreddit here"/>
           <button onClick={this.search}>Search</button>
+          <input type="number" value={this.state.limit} size="40" onChange={this.handleLimit} placeholder="The page currently returns 20 results"/>
         </div>
     )
   }
