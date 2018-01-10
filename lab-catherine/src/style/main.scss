@@ -16,6 +16,21 @@ body {
   margin-left: 40px;
 }
 
+h2 {
+  list-style: none;
+  font-size: 15px;
+}
+
+img {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+}
+
+img:hover {
+  background-color: cornsilk;
+}
+
 a, a:visited {
   text-decoration: none;
   color: $color-secondary;
@@ -25,14 +40,6 @@ a:hover {
   color: $color-primary;
 }
 
-.sub-reddit {
-  list-style-type: none;
-  padding: $spacing;
-  margin: $spacing;
-  border: 2px solid black;
-  background-color: $color-tertiary;
-  border-radius: 10px;
-}
 
 button, input {
   background-color: $color-tertiary;
@@ -52,6 +59,15 @@ button:hover {
   background-color: $color-secondary;
 }
 
-input:invalid {
+.sub-reddit {
+  list-style-type: none;
+  padding: $spacing;
+  margin: $spacing;
+  border: 2px solid black;
+  background-color: $color-tertiary;
+  border-radius: 10px;
+}
+
+.error {
   border: 2px solid red;
 }

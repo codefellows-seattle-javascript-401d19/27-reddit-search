@@ -12,6 +12,7 @@ class App extends React.Component {
       topics: [],
       hasSearched: false,
       loading: false,
+      errorExists: false,
     };
 
     this.search = this.search.bind(this);
@@ -19,18 +20,21 @@ class App extends React.Component {
   }
 
   search(topic, limit) {
-    this.setState({loading: true, hasSearched: true});
+    this.setState({loading: true, hasSearched: true, errorExists: false});
     superagent.get(`https://www.reddit.com/r/${topic}.json?limit=${limit}`)
       .then(response => {
+        if(response.status !== 200)
+          throw new Error('error');
+        
         this.setState({
           topics: response.body.data.children,
           error: null,
         });
       })
-      .catch(error => {
-        console.log(error);
-        this.setState({
-          hasError: true,
+      .catch(() => {
+        return this.setState({
+          errorExists: true,
+          loading: false,
         });
       });
   }
@@ -43,11 +47,10 @@ class App extends React.Component {
     return (
       <div>
         <h1>Search Reddit!</h1>
-        <SearchForm submitSearch={this.search}/>
+        <SearchForm submitSearch={this.search} errorExists={this.state.errorExists}/>
         <SearchResultList
           results={this.state.topics}
           hasSearched={this.state.hasSearched}
-          hasError={this.state.hasError}
           loading={this.state.loading} />
       </div>
     );

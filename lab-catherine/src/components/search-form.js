@@ -30,11 +30,13 @@ class SearchForm extends React.Component {
     return (
       <div>
         <label>Topic:</label>
-        <input type="text" value={this.state.topic} onChange={this.handleTopic}/>  
+        <input className={this.props.errorExists ? 'error' : ''} type="text" value={this.state.topic} onChange={this.handleTopic}/>  
         &nbsp;
+
         <label>Limit:</label>
-        <input type="text" value={this.state.limit} onChange={this.handleLimit}/>      
+        <input type="number" min="1" max="100" value={this.state.limit} onChange={this.handleLimit}/>      
         &nbsp;
+
         <button onClick={this.search}>Search</button>
       </div>
     );
