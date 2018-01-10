@@ -1,63 +1,54 @@
-401 JS --  Lab 27 Reddit Search Engine
-===
+# Code Fellows: Seattle 401 JavaScript - 401d19
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-  * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas  
+## Lab 27: Reddit Search
 
-## Requirements  
-#### Configuration  
-Your lab directory must include  
-* **README.md** -- with a documention about your lab
-* **.gitignore** -- with a robust gitignore
-* **.eslintrc.json** -- with the class .eslintrc.json file
-* **.eslintignore** -- with the class .eslintignore
-* **.babelrc** -- with all dependencies and dev-dependencies 
-* **package.json** -- with all dependencies and dev-dependencies 
-* **package-lock.json** -- with the package.json lockfile
-* **webpack.config.js** -- with webpack config
-* **src/** -- containing the front end code
-* **src/main.js** -- containing the entire app
-* **src/style** -- containing your sass
-* **src/style/main.scss** -- containing the frontend sass
- 
-#### Feature Tasks 
-Create the following components and structure them according to the following diagram.  
-```
-App
-  SearchForm
-  SearchResultList
-``` 
-###### App Component
-* should contain all of the **application state** 
-* should contain methods for modifying the application state
-* the state should have a topics array for holding the results of the search
 
-###### SearchForm Component
-* should contain a text input for the user to supply a reddit board to look up
-* should contain a number input for the user to limit the number of results to return 
-  * the number must be less than 0 and greater than 100
-* `onSubmit` the form should make a request to reddit 
-  * it should make a get request to `http://reddit.com/r/${searchFormBoard}.json?limit=${searchFormLimit}`
-  * on success it should pass the results to the application state
-  * on failure it should add a class to the form called error and turn the form's inputs borders red
 
-###### SearchResultList Component
-* Should inherit all search results through props
-* This component does not need to have its own state!
-* If there are topics in the application state it should display the unordered list 
-* Each list item in the unordered list should contain the following
-  * an anchor tag with a href to the topic.url 
-    * inside the anchor a heading tag with the topic.title 
-    * inside the anchor a p tag with the number of topic.ups 
+### Author: 
+Dalton Carr
 
-#### Test
-* no testing today
+### Motivation
 
-####  Documentation  
-Write a description of the project in your README.md
+This is a React application I built to search a certain topic and number of topics on Reddit. 
 
+
+### Code Style
+
+Standard JavaScript with ES6, SASS, CSS, HTML
+
+### Tech/Framework Used
+
+* babel-core
+* babel-loader
+* babel-plugin-transform-object-rest-spread
+* babel-preset-es2015
+* babel-preset-react
+* cowsay-browser
+* css-loader
+* extract-text-webpack-plugin
+* faker
+* html-webpack-plugin
+* node-sass
+* react
+* react-dom
+* resolve-url-loader
+* sass-loader
+* webpack
+* webpack-dev-server
+* eslint
+
+### How to use?
+
+* Step 1. Fork and Clone the Repository.
+* Step 2. `npm install`
+* Step 3. `npm run watch`
+* Step 4. You should now be able to visit: `http://localhost:8080/` to view the application
+* Step 5. Click the button that says `'click me'` to see the cow speak!
+
+### Credits
+
+* Code Fellows
+
+### License
+
+MIT © Dalton Carr
