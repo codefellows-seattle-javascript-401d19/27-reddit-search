@@ -13,14 +13,15 @@ class App extends React.Component {
     this.state = {};
     this.state.topics = [];
     this.state.firstSearch = true;
+    this.state.status = 'success';
   }
 
   render() {
     return (
       <div>
         <SearchForm context={this} />
-        <ul>
-          <ResultsList topics={this.state.topics} firstSearch={this.state.firstSearch} />
+        <ul className="clearfix">
+          <ResultsList topics={this.state.topics} firstSearch={this.state.firstSearch} status={this.state.status} />
         </ul>
       </div>
     )

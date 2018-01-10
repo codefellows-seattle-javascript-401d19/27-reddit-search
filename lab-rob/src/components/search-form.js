@@ -15,7 +15,7 @@ class searchForm extends React.Component {
   }
 
   handleNumResults(event) {
-    if(event.target.value > -1 && event.target.value < 101)
+    if(event.target.value > 0 && event.target.value < 100)
       this.setState({numResults: event.target.value});
   }
 
@@ -25,19 +25,25 @@ class searchForm extends React.Component {
 
   getResults(e) {
     e.preventDefault();
+    this.props.context.setState({
+      status: 'loading',
+      firstSearch: false,
+    });
 
-    fetch(`http://www.reddit.com/r/${this.state.subreddit}.json?limit=${this.state.numResults}`)
+    return fetch(`http://www.reddit.com/r/${this.state.subreddit}.json?limit=${this.state.numResults}`)
       .then(response => response.json())
       .then(response => {
         let trueResults = response.data.children
           .filter(result => !result.data.stickied)
           .map(result => result.data);
 
-        this.props.context.setState({
-          topics: trueResults,
-          firstSearch: false,
-        });
+        this.props.context.setState({topics: trueResults});
+        this.props.context.setState({status: 'success'})
       })
+      .catch(error => {
+        console.log(error.message);
+        this.props.context.setState({status: 'error'})
+      });
   }
 
   render() {
@@ -45,9 +51,9 @@ class searchForm extends React.Component {
       <form onSubmit={this.getResults}>
         <button type="submit">Find</button>
         <span> the top </span>
-        <input type="number" required="required" value={this.state.numResults}  placeholder="#" min="0" max="100" onChange={this.handleNumResults}  />
+        <input type="number" required="required" value={this.state.numResults}  placeholder="#" min="1" max="99" onChange={this.handleNumResults}  />
         <span> results from the subreddit r/ </span>
-        <input type="text" required="required" value={this.state.subreddit} placeholder="subreddit" onChange={this.handleSubreddit} />
+        <input className={this.props.context.state.status} type="text" required="required" value={this.state.subreddit} placeholder="subreddit" onChange={this.handleSubreddit} />
       </form>
     )
   }

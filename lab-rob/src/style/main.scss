@@ -1,3 +1,118 @@
+$padding: 10px;
+$formBackground: #a5cab6;
+
 html, body {
   background-color: #69ca95;
+  font-family: 'Oswald', sans-serif;
+}
+
+input, button {
+  background-color: $formBackground;
+  font-family: 'Oswald', sans-serif;
+}
+
+img {
+  border: 2px solid black;
+}
+
+ul {
+  padding-right: 40px;
+}
+
+li {
+  background-color: #995a99;
+  border: 4px solid black;
+  margin-bottom: 5px;
+  overflow: auto;
+  list-style: none;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-top: 0px;
+  font-size: 1.25em;
+}
+
+.title {
+  padding-right: 2 * $padding;
+}
+
+p {
+  margin-top: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  transition: all 0.3s;  
+}
+
+a:visited {
+  color: #c395ff;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: black;
+}
+
+.resultNumber {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.thumbnail {
+  float: left;
+  clear: both;
+  padding: $padding;
+}
+
+.thumbnail img {
+  width: 140px;
+}
+
+.info {
+  padding-left: 150px;
+  padding-top: $padding;
+  padding-right: 2 * $padding;
+}
+
+.error {
+  border: 2px solid red;
+  outline-width: 0px;
+}
+
+form {
+  text-align: center;
+}
+
+button {
+  border: 1px solid white;
+  border-radius: 2px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s;
+  outline: none;
+}
+
+button:hover {
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+button:active {
+  color: red;
+  border: 1px solid white;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
 }
