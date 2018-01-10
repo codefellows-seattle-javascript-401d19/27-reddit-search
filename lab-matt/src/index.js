@@ -17,7 +17,7 @@ class App extends React.Component {
     return (
       <div>
         <h1 id='main-header'>Reddit Search Engine</h1>
-        <SearchForm app={this} getReddit={this.renderReddit} />
+        <SearchForm app={this} />
         <SearchResultList redditArray={this.state.redditResponse}/>
       </div>
     );

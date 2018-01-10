@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 15);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -303,9 +303,9 @@ module.exports = emptyFunction;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(21);
+  module.exports = __webpack_require__(20);
 } else {
-  module.exports = __webpack_require__(22);
+  module.exports = __webpack_require__(21);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -565,52 +565,6 @@ module.exports = warning;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(24);
-} else {
-  module.exports = __webpack_require__(27);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -623,7 +577,7 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(5);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(23);
+  var ReactPropTypesSecret = __webpack_require__(22);
   var loggedTypeFailures = {};
 }
 
@@ -674,7 +628,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -713,7 +667,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -794,7 +748,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -836,7 +790,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -907,7 +861,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -950,7 +904,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -980,7 +934,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -988,13 +942,13 @@ module.exports = focusNode;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-__webpack_require__(16);
+__webpack_require__(15);
 
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(7);
+var _reactDom = __webpack_require__(23);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -1022,8 +976,9 @@ var App = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-    _this.state = {};
-
+    _this.state = {
+      redditResponse: []
+    };
     return _this;
   }
 
@@ -1035,11 +990,11 @@ var App = function (_React$Component) {
         null,
         _react2.default.createElement(
           'h1',
-          null,
-          'Search Form List'
+          { id: 'main-header' },
+          'Reddit Search Engine'
         ),
-        _react2.default.createElement(_searchForm2.default, null),
-        _react2.default.createElement(_searchResultList2.default, null)
+        _react2.default.createElement(_searchForm2.default, { app: this }),
+        _react2.default.createElement(_searchResultList2.default, { redditArray: this.state.redditResponse })
       );
     }
   }]);
@@ -1050,13 +1005,13 @@ var App = function (_React$Component) {
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('appGoesHere'));
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(17);
+var content = __webpack_require__(16);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1064,7 +1019,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(19)(content, options);
+var update = __webpack_require__(18)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -1081,21 +1036,21 @@ if(false) {
 }
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(18)(false);
+exports = module.exports = __webpack_require__(17)(false);
 // imports
 
 
 // module
-exports.push([module.i, "body {\n  background-color: #ff864e; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0;\n  padding: 0; }\n\nbody {\n  background-color: #ff864e; }\n\n#main-header {\n  margin: 5px 10px; }\n\n.no-results {\n  margin: 15px;\n  margin-left: 30px;\n  font-size: 40px;\n  color: red;\n  text-shadow: 0px 0px 2px #1a1a1a; }\n\n.error {\n  border: 2px solid red;\n  background-color: #fd9898; }\n\n.pre-text-box {\n  display: inline-block;\n  margin-left: 10px;\n  color: white; }\n\n.reddit {\n  position: relative;\n  margin: 5px;\n  border: black solid 1px;\n  background-color: #d0ff93;\n  height: 170px; }\n  .reddit .author {\n    font-style: italic;\n    margin-left: 170px;\n    padding-bottom: 20px; }\n  .reddit .title {\n    margin-top: 5px;\n    margin-left: 170px;\n    color: #973197;\n    font-size: 30px;\n    padding-right: 250px; }\n  .reddit .image {\n    float: left;\n    overflow: auto;\n    margin-top: 10px;\n    margin-left: 10px;\n    width: 150px;\n    height: 150px;\n    object-fit: cover; }\n  .reddit .upvote {\n    display: inline-block;\n    max-width: 150px;\n    max-height: 150px;\n    position: absolute;\n    right: 170px;\n    top: 10px; }\n  .reddit .ups {\n    position: absolute;\n    display: inline-block;\n    font-size: 40px;\n    right: 30px;\n    top: 35%; }\n  .reddit .subreddit {\n    position: absolute;\n    bottom: 5px;\n    right: 5px;\n    color: grey;\n    font-size: 25px; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports) {
 
 /*
@@ -1177,7 +1132,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -1233,7 +1188,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(20);
+var	fixUrls = __webpack_require__(19);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -1549,7 +1504,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports) {
 
 
@@ -1644,7 +1599,7 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1672,7 +1627,7 @@ isValidElement:K,version:"16.2.0",__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_F
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1698,7 +1653,7 @@ var emptyObject = __webpack_require__(4);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
 var emptyFunction = __webpack_require__(1);
-var checkPropTypes = __webpack_require__(8);
+var checkPropTypes = __webpack_require__(7);
 
 // TODO: this is special because it gets imported during build.
 
@@ -3037,7 +2992,7 @@ module.exports = react;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3056,6 +3011,52 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(24);
+} else {
+  module.exports = __webpack_require__(27);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3072,7 +3073,7 @@ module.exports = ReactPropTypesSecret;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),l=__webpack_require__(9),B=__webpack_require__(3),C=__webpack_require__(1),ba=__webpack_require__(10),da=__webpack_require__(11),ea=__webpack_require__(12),fa=__webpack_require__(13),ia=__webpack_require__(14),D=__webpack_require__(4);
+var aa=__webpack_require__(2),l=__webpack_require__(8),B=__webpack_require__(3),C=__webpack_require__(1),ba=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),fa=__webpack_require__(12),ia=__webpack_require__(13),D=__webpack_require__(4);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -3372,16 +3373,16 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(2);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
-var ExecutionEnvironment = __webpack_require__(9);
+var ExecutionEnvironment = __webpack_require__(8);
 var _assign = __webpack_require__(3);
 var emptyFunction = __webpack_require__(1);
-var EventListener = __webpack_require__(10);
-var getActiveElement = __webpack_require__(11);
-var shallowEqual = __webpack_require__(12);
-var containsNode = __webpack_require__(13);
-var focusNode = __webpack_require__(14);
+var EventListener = __webpack_require__(9);
+var getActiveElement = __webpack_require__(10);
+var shallowEqual = __webpack_require__(11);
+var containsNode = __webpack_require__(12);
+var focusNode = __webpack_require__(13);
 var emptyObject = __webpack_require__(4);
-var checkPropTypes = __webpack_require__(8);
+var checkPropTypes = __webpack_require__(7);
 var hyphenateStyleName = __webpack_require__(28);
 var camelizeStyleName = __webpack_require__(30);
 
@@ -18918,10 +18919,6 @@ var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(7);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18930,22 +18927,77 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var REDDIT_URL = 'http://www.reddit.com/r/';
+var URL_EXTENSION = '.json?limit=';
+
 var SearchForm = function (_React$Component) {
   _inherits(SearchForm, _React$Component);
 
-  function SearchForm() {
+  function SearchForm(props) {
     _classCallCheck(this, SearchForm);
 
-    return _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (SearchForm.__proto__ || Object.getPrototypeOf(SearchForm)).call(this, props));
+
+    _this.state = {
+      term: 'doge',
+      limit: 25,
+      error: ' '
+    };
+
+    _this.searchTerm = _this.searchTerm.bind(_this);
+    _this.limitEr = _this.limitEr.bind(_this);
+    _this.fetchReddit = _this.fetchReddit.bind(_this);
+    return _this;
   }
 
   _createClass(SearchForm, [{
+    key: 'fetchReddit',
+    value: function fetchReddit(event) {
+      var _this2 = this;
+
+      event.preventDefault();
+      var term = event.target.subreddit.value;
+      var limit = event.target.limit.value;
+
+      fetch(REDDIT_URL + term + URL_EXTENSION + limit).then(parseRedditJson).then(function (response) {
+        _this2.props.app.setState({ redditResponse: response });
+        _this2.setState({ error: ' ' });
+      }).catch(function (error) {
+        _this2.props.app.setState({ redditResponse: error.message });
+        _this2.setState({ error: 'error ' });
+      });
+    }
+  }, {
+    key: 'searchTerm',
+    value: function searchTerm(event) {
+      this.setState({ term: event.target.value });
+    }
+  }, {
+    key: 'limitEr',
+    value: function limitEr(event) {
+      if (event.target.value > 100 || event.target.value < 0) {
+        return;
+      }
+      this.setState({ limit: event.target.value });
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement('input', { type: 'text', placeholder: 'Enter Search Here' }),
+        'form',
+        { onSubmit: this.fetchReddit },
+        _react2.default.createElement(
+          'p',
+          { className: 'pre-text-box' },
+          'reddit.com/r/'
+        ),
+        _react2.default.createElement('input', { className: this.state.error, onChange: this.searchTerm, name: 'subreddit', value: this.state.term, type: 'text', placeholder: 'Enter Search Here' }),
+        _react2.default.createElement(
+          'p',
+          { className: 'pre-text-box' },
+          'SearchLimit:'
+        ),
+        _react2.default.createElement('input', { className: this.state.error, onChange: this.limitEr, name: 'limit', value: this.state.limit, type: 'number', placeholder: 'Limit', max: '100', min: '0' }),
         _react2.default.createElement(
           'button',
           null,
@@ -18960,6 +19012,16 @@ var SearchForm = function (_React$Component) {
 
 module.exports = SearchForm;
 
+function parseRedditJson(response) {
+  return response.json().then(function (responsePlus) {
+    return responsePlus.data.children.filter(function (result) {
+      return !result.data.stickied;
+    }).map(function (result) {
+      return result.data;
+    });
+  });
+}
+
 /***/ }),
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18972,10 +19034,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(7);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18995,30 +19053,68 @@ var SearchResultList = function (_React$Component) {
   }
 
   _createClass(SearchResultList, [{
+    key: 'buildResults',
+    value: function buildResults() {
+      if (this.props.redditArray.includes('Failed to fetch')) {
+        return _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(
+            'p',
+            { className: 'no-results' },
+            'No Results Found'
+          )
+        );
+      } else if (this.props.redditArray.length > 0) {
+        return this.props.redditArray.map(function (each, index) {
+          var image = void 0;
+          try {
+            image = each.preview.images[0].source.url;
+          } catch (e) {
+            image = 'http://i.imgur.com/YAGEvij.png';
+          }
+          return _react2.default.createElement(
+            'div',
+            { key: index, className: 'reddit' },
+            _react2.default.createElement('img', { className: 'image', src: image, alt: '' }),
+            _react2.default.createElement(
+              'a',
+              { href: 'https://reddit.com/' + each.permalink },
+              _react2.default.createElement(
+                'h4',
+                { className: 'title' },
+                each.title
+              )
+            ),
+            _react2.default.createElement(
+              'p',
+              { className: 'author' },
+              'author: ',
+              each.author
+            ),
+            _react2.default.createElement(
+              'h1',
+              { className: 'ups' },
+              each.ups
+            ),
+            _react2.default.createElement('img', { className: 'upvote', src: 'http://i.imgur.com/q94gk.png', alt: '' }),
+            _react2.default.createElement(
+              'p',
+              { className: 'subreddit' },
+              '/r/',
+              each.subreddit
+            )
+          );
+        });
+      } else return;
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(
-          'ul',
-          null,
-          _react2.default.createElement(
-            'li',
-            null,
-            'Test'
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'One'
-          ),
-          _react2.default.createElement(
-            'li',
-            null,
-            'Two'
-          )
-        )
+        this.buildResults()
       );
     }
   }]);
