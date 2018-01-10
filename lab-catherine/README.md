@@ -2,7 +2,7 @@
 
 ## Lab 27: Reddit Search Engine
 
-![Reddit Search Example](/asset/reddit-search.png)
+![Reddit Search Example](./asset/reddit-search.png)
 
 ### Author: 
 Catherine Looper
@@ -15,7 +15,7 @@ Additionally, this application will turn the topic form's input borders red in t
 
 ### Build
 
-![Reddit File Tree](/asset/reddit-search-tree.png)
+![Reddit File Tree](./asset/reddit-search-tree.png)
 
 ### Limitations
 
