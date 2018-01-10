@@ -1,7 +1,7 @@
 import React from 'react';
 
 class SearchForm extends React.Component {
-  constructor(props){
+  constructor(props){     // the props passed in is the submitSearch function
     super(props);
 
     this.state = {filter: '', resultLimit:'1'};
@@ -16,11 +16,12 @@ class SearchForm extends React.Component {
   }
 
   runSearch() {
-    const xmlhttp = new XMLHttpRequest();
     const url = `http://www.reddit.com/r/${this.state.filter}.json?limit=${this.state.resultLimit}`;
-    xmlhttp.open('GET', url);
-    xmlhttp.send();
-    this.setState(this.props.submitSearch(this.state.filter));
+    fetch(url)
+      .then(response => {
+        this.setState(this.props.submitSearch(this.state.filter));
+        console.log(response);
+      });
   }
 
   chooseNumber(event) {

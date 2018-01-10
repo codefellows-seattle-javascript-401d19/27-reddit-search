@@ -17,8 +17,7 @@ class App extends React.Component {
   }
 
   search(filter) {
-    console.log(this.state);
-    // this.setState({topics: [], hasSearched: true});
+    this.setState({topics: [], hasSearched: true});
   }
 
   render() {
