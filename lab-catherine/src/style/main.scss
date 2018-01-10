@@ -1,0 +1,15 @@
+$color-primary: darkSalmon;
+$color-secondary: darkSlateGray;
+$color-tertiary: cornSilk;
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+body {
+  color: $color-secondary;
+  background-color: $color-primary;
+  font-size: 1em;
+  margin-left: 40px;
+}
