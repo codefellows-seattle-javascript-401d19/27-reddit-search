@@ -1,5 +1,3 @@
-'use strict';
-
 import './style/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,51 +7,51 @@ import superagent from 'superagent';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       topics: [],
       hasSearched: false,
       loading: false,
       failedSearch: false,
-    }
+    };
 
     this.search = this.search.bind(this);
     this.setResults = this.setResults.bind(this);
   }
 
-  search(subreddit='trees', limit = 20) {
-    this.setState({loading:true, hasSearched: true})
-  setTimeout(() => {
-    return superagent.get(`https://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
-      .then(response => {
-        console.log(response.body.data.children)
-        return this.setResults(response.body.data.children)
-      })
-      .catch(this.setState({failedSearch: true, loading: false}))
+  search(subreddit = 'trees', limit = 20) {
+    this.setState({loading:true, hasSearched: true});
+    setTimeout(() => {
+      return superagent.get(`https://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
+        .then(response => {
+          console.log(response.body.data.children);
+          return this.setResults(response.body.data.children);
+        })
+        .catch(this.setState({failedSearch: true, loading: false}));
 
-    }, 1750)
+    }, 1750);
   }
 
   setResults(newResults){
-    this.setState({topics: newResults, loading: false, failedSearch: false})
+    this.setState({topics: newResults, loading: false, failedSearch: false});
   }
 
   render() {
     return (
       <div>
-      <SearchForm
-        submitSearch={this.search}
-        failedSearch={this.state.failedSearch}
-      />
-      <ResultList
-        topics={this.state.topics}
-        hasSearched = {this.state.hasSearched}
-        loading={this.state.loading}
-      />
+        <SearchForm
+          submitSearch={this.search}
+          failedSearch={this.state.failedSearch}
+        />
+        <ResultList
+          topics={this.state.topics}
+          hasSearched = {this.state.hasSearched}
+          loading={this.state.loading}
+        />
       </div>
-    )
+    );
   }
 }
 
 
-ReactDOM.render(<App/>, document.getElementById('content'))
+ReactDOM.render(<App/>, document.getElementById('content'));
