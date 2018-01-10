@@ -1,30 +1,40 @@
+'use strict';
 
-const path = require('path');
-
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const htmlWebpackPluginConfig = new htmlWebpackPlugin({
-  template: './src/index.html',
-  filename: 'index.html',
-  inject: '#content',
-});
+const HTMLPlugin = require('html-webpack-plugin');
+const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: `${__dirname}/src/main.js`,
   output: {
-    path: path.resolve('build'),
     filename: 'bundle.[hash].js',
+    path: `${__dirname}/build`,
   },
-  plugins: [htmlWebpackPluginConfig],
-  module: {
+  plugins: [
+    new HTMLPlugin({template: `${__dirname}/src/index.html`}),
+    new ExtractPlugin('bundle.[hash].css'),
+  ],
+  module: { // loaders
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
+        loader: 'babel-loader',
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader',
+        loader: ExtractPlugin.extract({
+          use: [
+            'css-loader',
+            'resolve-url-loader',
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: true,
+                includePaths: [`${__dirname}/src/style`],
+              },
+            },
+          ],
+        }),
       },
     ],
   },

@@ -999,6 +999,8 @@ var App = function (_React$Component) {
   return App;
 }(_react2.default.Component);
 
+_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
+
 /***/ }),
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
