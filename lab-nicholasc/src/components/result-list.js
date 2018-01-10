@@ -19,10 +19,6 @@ class ResultList extends React.Component { //TODO: delete constructor and factor
   }
 }
 
-
-
-
-
   render(){
     return (
       <div>

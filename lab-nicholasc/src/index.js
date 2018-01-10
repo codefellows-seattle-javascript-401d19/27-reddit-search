@@ -16,6 +16,7 @@ class App extends React.Component {
     }
 
     this.search = this.search.bind(this);
+    this.setResults = this.setResults.bind(this);
   }
 
   search(filter='') {
@@ -29,8 +30,12 @@ class App extends React.Component {
   ].filter(result => {
     return result.language.includes(filter)
   })
-      this.setState({results: newResults, loading: false)
+      this.setResults(newResults)
     }, 1000)
+  }
+
+  setResults(newResults){
+    this.setState({results: newResults, loading: false})
   }
 
   render() {
@@ -49,5 +54,3 @@ class App extends React.Component {
 
 
 ReactDOM.render(<App/>, document.getElementById('content'))
-
-console.log('hey');

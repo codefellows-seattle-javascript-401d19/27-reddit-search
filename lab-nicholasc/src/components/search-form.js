@@ -13,16 +13,20 @@ class SearchForm extends React.Component {
     this.search = this.search.bind(this)
   }
 
+  handleFilter(event) {
+    this.setState({filter: event.target.value})
+  }
 
+  search() {
+    this.props.submitSearch(this.state.filter)
+  }
 
   render(){
     return (
-      <form>
         <div>
           <input type="text" value={this.state.filter} size="80" onChange={this.handleFilter} placeholder="type subreddit here"/>
           <button onClick={this.search}>Search</button>
         </div>
-      </form>
     )
   }
 }
