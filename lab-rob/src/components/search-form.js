@@ -23,7 +23,9 @@ class searchForm extends React.Component {
     this.setState({subreddit: event.target.value});
   }
 
-  getResults() {    
+  getResults(e) {
+    e.preventDefault();
+
     fetch(`http://www.reddit.com/r/${this.state.subreddit}.json?limit=${this.state.numResults}`)
       .then(response => response.json())
       .then(response => {
@@ -40,13 +42,13 @@ class searchForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.getResults}>Find</button>
+      <form onSubmit={this.getResults}>
+        <button type="submit">Find</button>
         <span> the top </span>
-        <input type="number" value={this.state.numResults}  placeholder="#" min="0" max="100" onChange={this.handleNumResults}  />
+        <input type="number" required="required" value={this.state.numResults}  placeholder="#" min="0" max="100" onChange={this.handleNumResults}  />
         <span> results from the subreddit r/ </span>
-        <input type="text" value={this.state.subreddit} placeholder="subreddit" onChange={this.handleSubreddit} />
-      </div>
+        <input type="text" required="required" value={this.state.subreddit} placeholder="subreddit" onChange={this.handleSubreddit} />
+      </form>
     )
   }
 }
