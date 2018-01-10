@@ -1,63 +1,41 @@
-401 JS --  Lab 27 Reddit Search Engine
-===
+![cf](http://i.imgur.com/7v5ASc8.png) Lab 27 Reddit search form
+====
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-  * Write all of your code in a directory named `lab-` + `<your name>` **e.g.** `lab-duncan`
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas  
+* Purpose of this lab is to practice building react components. Separation of App component and it's children (Search Form and Result List). Including fetching data from Reddit webpage. 
 
-## Requirements  
-#### Configuration  
-Your lab directory must include  
-* **README.md** -- with a documention about your lab
-* **.gitignore** -- with a robust gitignore
-* **.eslintrc.json** -- with the class .eslintrc.json file
-* **.eslintignore** -- with the class .eslintignore
-* **.babelrc** -- with all dependencies and dev-dependencies 
-* **package.json** -- with all dependencies and dev-dependencies 
-* **package-lock.json** -- with the package.json lockfile
-* **webpack.config.js** -- with webpack config
-* **src/** -- containing the front end code
-* **src/main.js** -- containing the entire app
-* **src/style** -- containing your sass
-* **src/style/main.scss** -- containing the frontend sass
- 
-#### Feature Tasks 
-Create the following components and structure them according to the following diagram.  
-```
-App
-  SearchForm
-  SearchResultList
-``` 
-###### App Component
-* should contain all of the **application state** 
-* should contain methods for modifying the application state
-* the state should have a topics array for holding the results of the search
+## Code Style
+* Javascript ES6
 
-###### SearchForm Component
-* should contain a text input for the user to supply a reddit board to look up
-* should contain a number input for the user to limit the number of results to return 
+
+## Tech / framework used
+
+* [npm package superagent](https://www.npmjs.com/package/superagent)
+* Webpack
+* React
+* Babel
+* sass
+
+## Installation and How To Use
+
+  * Fork || clone this repo to you computer.
+
+  * Run `npm install`
+
+  * To run webpack watch command type `npm run watch`. After build has been completed - webpack-dev-server will show provide URL where your project is hosted. Copy that address to your browser to view app features. Fill in search input with subreddit topic you wish to display and enter limit number that will be limit amount of posts that will be displaued on our page.
+
+## Features
+
+### App Component
+* contains *topics* array that contains all posts from subreddit.
+
+### SearchForm Component
+* contains a text input for the user to supply a reddit board to look up
+* contains a number input for the user to limit the number of results to return 
   * the number must be less than 0 and greater than 100
-* `onSubmit` the form should make a request to reddit 
-  * it should make a get request to `http://reddit.com/r/${searchFormBoard}.json?limit=${searchFormLimit}`
-  * on success it should pass the results to the application state
-  * on failure it should add a class to the form called error and turn the form's inputs borders red
+  * if number is bigger thatn 100, it will be set to 100
 
-###### SearchResultList Component
-* Should inherit all search results through props
-* This component does not need to have its own state!
-* If there are topics in the application state it should display the unordered list 
-* Each list item in the unordered list should contain the following
-  * an anchor tag with a href to the topic.url 
-    * inside the anchor a heading tag with the topic.title 
-    * inside the anchor a p tag with the number of topic.ups 
+### ResultList Component
+* Is stateless component and it has one method *postList* that is displaying results from Reddit in form of unordered list that contains topic title and with url attached to it as well as number of upvotes. 
 
-#### Test
-* no testing today
-
-####  Documentation  
-Write a description of the project in your README.md
-
+## Licence
+MIT © Pedja Josifovic401 JS 
