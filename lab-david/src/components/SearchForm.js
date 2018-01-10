@@ -35,8 +35,8 @@ class SearchForm extends React.Component {
     return (
       <div>
       <form>
-          <input type="text" value={this.state.searchInputName} placeholder="Insert subreddit board name here" onChange={this.handleTopicTextBox}/>
-            <input type="text" value={this.state.SearchResultsNumberLimit} placeholder="Insert number of results desired" onChange={this.handleNumbersTextBox}/>
+          <input type="text" value={this.state.searchInputName} placeholder="Type subreddit board name here" onChange={this.handleTopicTextBox}/>
+          <input type="number" min="0" max="99" value={this.state.SearchResultsNumberLimit} placeholder="Insert number of results desired" onChange={this.handleNumbersTextBox}/>
           <button onSubmit={this.getTopicsFromReddit}>Search</button>
         </form>
       </div>

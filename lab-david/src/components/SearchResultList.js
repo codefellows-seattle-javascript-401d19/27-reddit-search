@@ -15,7 +15,7 @@ class SearchResultList extends React.Component {
     } else {
       return this.props.SearchResultsFromReddit.map((SearchResultsFromReddit, index) => {
         return <div key={index}>
-          <li>Subreddit Title : {SearchResultsFromReddit.topic}</li>
+          <li>Subreddit Title : {SearchResultsFromReddit.data.title}</li>
           <a href=''></a>
           <p>Subreddit Topics</p>
         </div>

@@ -1,4 +1,18 @@
 
 body {
   background-color: palevioletred;
+  color: darkblue;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2em;
+  text-align: center;
+}
+
+form {
+  padding: 2em;
+  text-align: center;
+}
+
+form input {
+  padding: 1em;
+  width: 80%;
 }
