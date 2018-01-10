@@ -4,8 +4,8 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subreddit: 'programming',
-      limit: 20,
+      subreddit: '',
+      limit: '',
     };
 
     this.search = this.search.bind(this);
@@ -15,8 +15,14 @@ class SearchForm extends React.Component {
 
   search(event) {
     event.preventDefault();
+    if (this.state.subreddit === '') {
+      alert('Please provide a subreddit');
+    } else if (this.state.limit === '') {
+      alert('Please provide a limit');
+    } else {
+      this.props.submitSearch(this.state.subreddit, this.state.limit);
+    }
 
-    this.props.submitSearch(this.state.subreddit, this.state.limit);
   }
 
   handleSubredditInput(event) {

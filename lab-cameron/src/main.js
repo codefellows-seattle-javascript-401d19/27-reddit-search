@@ -18,7 +18,7 @@ class App extends React.Component {
     this.search = this.search.bind(this);
   }
 
-  search(subreddit = 'programming', limit = 20) {
+  search(subreddit, limit) {
     this.setState({ loading: true, hasSearched: true });
     fetch(`http://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
       .then(response => response.json())
