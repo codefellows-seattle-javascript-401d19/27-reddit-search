@@ -13,18 +13,22 @@ class App extends React.Component {
       topics: [],
       hasSearched: false,
       loading: false,
+      noResults: false,
     };
 
     this.search = this.search.bind(this);
   }
 
   search(subreddit, limit) {
-    this.setState({ loading: true, hasSearched: true });
+    this.setState({ loading: true, hasSearched: true, noResults: false });
     fetch(`http://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
       .then(response => response.json())
       .then(responseData => responseData.data.children)
       .then(data => {
         this.setState({ topics: data, loading: false, hasSearched: true });
+      })
+      .catch(() => {
+        this.setState({ noResults: true });
       });
   }
 
@@ -37,6 +41,7 @@ class App extends React.Component {
           topics={this.state.topics}
           hasSearched={this.state.hasSearched}
           loading={this.state.loading}
+          noResults={this.state.noResults}
         />
       </div>
     );
