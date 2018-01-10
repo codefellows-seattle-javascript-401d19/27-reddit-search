@@ -6,22 +6,23 @@ class SearchResultList extends React.Component {
   }
 
   redditResults() {
-    if(!this.props.hasSearched){
+    if (!this.props.hasSearched){
       return <div></div>;
-    }else if(this.props.length < 1){
+    } else if (this.props.length < 1){
       return <p>No results</p>;
-    }else{
+    } else {
       return this.props.topics.map((result, index) => {
-        return <div key={index}><p>Title: result.topic</p><p>Link: result.url</p></div>;
+        const urlBase = 'https://www.reddit.com';
+        return <li key={index}><a href={`${urlBase}${result.data.permalink}`}>{result.data.title}</a></li>;
       });
     }
   }
 
   render() {
     return(
-      <div>
+      <ul>
         {this.redditResults()}
-      </div>
+      </ul>
     );
   }
 }

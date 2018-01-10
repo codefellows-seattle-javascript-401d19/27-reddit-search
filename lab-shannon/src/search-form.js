@@ -19,8 +19,14 @@ class SearchForm extends React.Component {
     const url = `http://www.reddit.com/r/${this.state.filter}.json?limit=${this.state.resultLimit}`;
     fetch(url)
       .then(response => {
-        this.setState(this.props.submitSearch(this.state.filter));
-        console.log(response);
+        if (response.status == 200){
+          let resultJson = response.json();
+          this.setState(this.props.submitSearch(resultJson));
+        } else {
+          return (
+            <div className='error'></div>
+          );
+        }
       });
   }
 

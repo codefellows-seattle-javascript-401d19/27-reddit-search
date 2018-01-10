@@ -1,4 +1,4 @@
-// import './style/main'
+import './style/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchForm from './search-form';
@@ -16,8 +16,15 @@ class App extends React.Component {
     this.search = this.search.bind(this);
   }
 
-  search(filter) {
-    this.setState({topics: [], hasSearched: true});
+  search(resultJson) {
+    resultJson.then(
+      response => {
+        this.setState({
+          topics: response.data.children,
+          hasSearched: true,
+        });
+      }
+    );
   }
 
   render() {
