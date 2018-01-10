@@ -1,0 +1,89 @@
+/* CSS Reset */
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-family: helvetica;
+  background-color: #fffce6;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Styles */
+#headline {
+  font-size: 50px;
+  font-weight: bolder;
+  color: #4CD4B0;
+  text-align: center;
+}
+
+#search-form {
+  text-align: center;
+}
+
+#topic-list {
+
+}
+
+#subreddit {
+  width: 50%;
+  height: 2em;
+  padding: 5px;
+  margin: 5px;
+  border: solid #09b3cb 1px;
+  background-color: white;
+}
+
+#number-of-results {
+  width: 50%;
+  height: 2em;
+  padding: 5px;
+  margin: 5px;
+  border: solid #09b3cb 1px;
+  background-color: white;
+}
+
+#result-list {
+  text-align: center;
+}
+
+.topics {
+  width: 50%;
+  height: 20%;
+  border: solid black 3px;
+  background-color: white;
+  padding: 1em;
+  margin: 1em auto;
+
+  h2 {
+    font-size: 30px;
+    background-color: white;
+    color: #F24D16;
+  }
+  h3 {
+    background-color: white;
+    color: black;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
