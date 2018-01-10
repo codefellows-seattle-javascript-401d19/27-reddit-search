@@ -1,12 +1,12 @@
 import './style/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SearchForm from './components/search-form'
-import SearchResultList from './components/search-result-list'
+import SearchForm from './components/search-form';
+import SearchResultList from './components/search-result-list';
 
 class App extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       topics: [],
     };
@@ -14,13 +14,13 @@ class App extends React.Component {
 
   }
   updateTopics(topics){
-    this.setState({topics: topics})
+    this.setState({topics: topics});
   }
   render() {
     return <div>
-          <SearchForm topics={this.state.topics} updateTopics={this.updateTopics}/>
-          <SearchResultList topics={this.state.topics}/>
-    </div>
+      <SearchForm topics={this.state.topics} updateTopics={this.updateTopics}/>
+      <SearchResultList topics={this.state.topics}/>
+    </div>;
   }
 }
 
