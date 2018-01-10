@@ -31,7 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Reddit Search</h1>
+        <h1 id='headline'>Reddit Search</h1>
         <SearchForm submitSearch={this.search} />
         <SearchResultList
           topics={this.state.topics}

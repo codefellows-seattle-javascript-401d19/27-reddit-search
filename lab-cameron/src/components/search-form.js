@@ -35,11 +35,12 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='search-form'>
         <form onSubmit={this.search}>
           <input
             type="text"
             placeholder="subreddit"
+            id="subreddit"
             value={this.state.subreddit}
             onChange={this.handleSubredditInput}
           />
@@ -48,7 +49,8 @@ class SearchForm extends React.Component {
 
           <input
             type="text"
-            placeholder="# of results"
+            placeholder="number of results"
+            id="number-of-results"
             value={this.state.limit}
             onChange={this.handleLimitInput}
           />

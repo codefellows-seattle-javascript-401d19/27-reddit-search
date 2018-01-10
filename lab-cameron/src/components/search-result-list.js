@@ -11,16 +11,18 @@ const SearchForm = ({ hasSearched, loading, topics }) => {
     } else {
       return topics.map((topic, index) => {
         return <div className='topics' key={index}>
-          Title: {topic.data.title}
-          <br />
-          Ups: {topic.data.ups}
+          <a href={topic.data.url}>
+            <h2>Title:</h2><h3>{topic.data.title}</h3>
+            <br />
+            <h2>Upvotes:</h2><h3>{topic.data.ups}</h3>
+          </a>
         </div>;
       });
     }
   };
 
   return (
-    <div>{topicList()}</div>
+    <div id='topic-list'>{topicList()}</div>
   );
 };
 
