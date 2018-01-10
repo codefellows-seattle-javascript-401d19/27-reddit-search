@@ -17,8 +17,8 @@ class ResultList extends React.Component {
     } else {
       return this.props.topics.map((topic, index)=> {
         return (
-          <ul>
-            <li key={index}>
+          <ul key={index}>
+            <li>
               <a href={topic.data.url}>
                 <h1>
                   {topic.data.title}

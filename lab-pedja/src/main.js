@@ -2,7 +2,6 @@ import './style/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import superagent from 'superagent';
-
 import SearchForm from './components/search-form';
 import ResultList from './components/search-result-list';
 
@@ -22,12 +21,13 @@ class App extends React.Component {
 
   search(subreddit, limit) {
     this.setState({loading: true, hasSearched: true, noResults: false});
+    console.log('hi there');
+    
     superagent.get(`https://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
       .then(res => {
-        console.log('inside .then');
         const topics = res.body.data.children;
-        console.log(topics);
-        
+        console.log(limit);
+               
         this.setState({ topics: topics, hasSearched: true, loading: false });
       })
       .catch(() => {

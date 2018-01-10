@@ -22,7 +22,8 @@ class SearchForm extends React.Component {
     this.setState({limit: event.target.value})
   }
 
-  search() {      
+  search(e) {   
+    e.preventDefault()   
     this.props.submitSearch(this.state.subreddit, this.state.limit)
   }
 
