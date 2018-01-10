@@ -1,6 +1,6 @@
 import React from 'react';
 
-class searchForm extends React.Component {
+class SearchForm extends React.Component {
   constructor(props){
     super(props);
 
@@ -17,7 +17,9 @@ class searchForm extends React.Component {
 
   runSearch() {
     const xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', `www.reddit.com/r${this.state.filter}.json?limit=${this.state.resultLimit}`);
+    const url = `http://www.reddit.com/r/${this.state.filter}.json?limit=${this.state.resultLimit}`;
+    xmlhttp.open('GET', url);
+    xmlhttp.send();
     this.setState(this.props.submitSearch(this.state.filter));
   }
 
@@ -36,4 +38,4 @@ class searchForm extends React.Component {
   }
 }
 
-module.exports = searchForm;
+module.exports = SearchForm;

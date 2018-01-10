@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SearchForm from './search-form';
-// import SearchResultList from './search-result-list';
+import SearchResultList from './search-result-list';
 
 class App extends React.Component {
   constructor(props){
@@ -10,17 +10,23 @@ class App extends React.Component {
 
     this.state = {
       topics: [],
+      hasSearched: false,
     };
   }
 
   search(filter) {
-    // this.setState({topics: });
+    console.log(`groot`);
+    // this.setState({topics: [], hasSearched: true});
   }
 
   render() {
     return (
       <div>
         <SearchForm submitSearch={this.search}/>
+        <SearchResultList
+          topics = {this.state.topics}
+          hasSearched = {this.state.hasSearched}
+        />
       </div>
     );
   }
