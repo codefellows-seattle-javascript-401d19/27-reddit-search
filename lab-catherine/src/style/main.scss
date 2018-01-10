@@ -21,7 +21,11 @@ a, a:visited {
   color: $color-secondary;
 }
 
-li {
+a:hover {
+  color: $color-primary;
+}
+
+.sub-reddit {
   list-style-type: none;
   padding: $spacing;
   margin: $spacing;
@@ -40,8 +44,14 @@ button, input {
   display: inline-block;
   font-size: 16px;
   border-radius: 10px;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 
-label {
-  padding-right: 15px;
+button:hover {
+  color: $color-tertiary;
+  background-color: $color-secondary;
+}
+
+input:invalid {
+  border: 2px solid red;
 }

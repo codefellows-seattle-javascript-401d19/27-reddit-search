@@ -12,7 +12,7 @@ class SearchResultList extends React.Component {
       return this.props.results.map((result, index) => {
         return (
           <div className="sub-reddit" key={index}>
-            <li> <a target="blank" href={result.data.url}>{result.data.title} <p>Up votes: {result.data.ups}</p></a></li>
+            <a target="blank" href={result.data.url}>{result.data.title}<p>Up votes: {result.data.ups}</p></a>
           </div>
         );
       });

@@ -24,6 +24,13 @@ class App extends React.Component {
       .then(response => {
         this.setState({
           topics: response.body.data.children,
+          error: null,
+        });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({
+          hasError: true,
         });
       });
   }
@@ -40,6 +47,7 @@ class App extends React.Component {
         <SearchResultList
           results={this.state.topics}
           hasSearched={this.state.hasSearched}
+          hasError={this.state.hasError}
           loading={this.state.loading} />
       </div>
     );
