@@ -13,26 +13,14 @@ class App extends React.Component {
       results: [],
       hasSearched: false,
       loading: false,
-      hasError: false,
     };
 
-    this.search = this.search.bind(this);
+    this.setCurrentState = this.setCurrentState.bind(this);
     this.setResults = this.setResults.bind(this);
   }
 
-  search(topic, filter){
-    this.setState({hasSearched: true, loading: true, hasError: false, results: []});
-    fetch(`https://www.reddit.com/r/${topic}.json?limit=${filter}`)
-      .then(response => {
-        if (response.status !== 200){
-          throw new Error('err');
-        }
-        return response.json();
-      })
-      .then(obj => this.setResults(obj.data.children))
-      .catch(() => {
-        return this.setState({hasError: true, loading:false});
-      });
+  setCurrentState(loading){
+    this.setState({results: [], loading, hasSearched: true});
   }
 
   setResults(newResults){
@@ -43,7 +31,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Subreddit Search</h1>
-        <SearchForm submitSearch={this.search} hasError={this.state.hasError}/>
+        <SearchForm setResults={this.setResults} setParentState={this.setCurrentState}/>
         <SearchResultList 
           results={this.state.results}
           hasSearched={this.state.hasSearched}
