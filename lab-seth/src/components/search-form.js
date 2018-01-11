@@ -9,22 +9,30 @@ class SearchForm extends React.Component {
     this.search = this.search.bind(this);
 }
 
-  handleResults(event) {
-    this.setState({subReddit: event.target.value, limit: event.target.value});
+  handleResults(event){
+    let { name, value } = event.target;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
-  // handleChange(event) {
-  //   let { name, value } = event.target;
-
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
 
   search(event) {
     event.preventDefault();
 
-    this.props.submitSearch(this.state.subReddit);
+    return fetch(`http://www.reddit.com/r/${this.state.subReddit}.json?limit=${this.state.limit - 1}`)
+      .then(response => response.json())
+      .then(response => {
+        console.log('response:', response);
+        let results = (response.data.children)
+          .map(result => result.data);
+
+        this.props.app.setState({results : results, hasSearched : true})
+        console.log('results from form', results)
+      })
+      .catch(err => console.log(err.message));
+
   }
 
   render() {

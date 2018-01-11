@@ -11,39 +11,17 @@ class App extends React.Component {
     this.state = {
       results: [],
       hasSearched: false,
-      loading: false
-    }
-
-    this.search = this.search.bind(this);
-    this.setResults = this.setResults.bind(this);
-  }
-
-  search() {
-    this.setState({loading: true, hasSearched: true})
-    setTimeout(() => {
-      let newResults = [ // needs to be array of results so it can be mapped
-        {subReddit: 'php', limit: 10},
-        {subReddit: 'php', limit: 10},
-        {subReddit: 'php', limit: 10},
-        {subReddit: 'php', limit: 10},
-      ];
-    
-      this.setResults(newResults)
-    }, 1000)
-  }
-
-  setResults(newResults) {
-    this.setState({results: newResults, loading:false})
+      loading: false,
+    };
   }
 
   render() {
     return (
       <div>
-        <SearchForm submitSearch={this.search} />
-        <SearchResultList 
-        results={this.state.results}
-        hasSearched={this.state.hasSearched}
-        loading={this.state.loading} />
+        <SearchForm app={this} />
+          <ul>
+          <SearchResultList results={this.state.results} hasSearched={this.state.hasSearched} loading={this.state.loading} />
+          </ul>
       </div>
     )
   }
