@@ -26,12 +26,13 @@ search(subreddit, limit){
 
   let data = await response.json();
 
-  console.log('====================================');
-  console.log(data);
-  console.log('====================================');
   return data
  }
- searchReddit(subreddit, limit)
+let responseData = searchReddit(subreddit, limit)
+  .then(data => {
+    this.setState({results : data.data.children});
+  })
+
 }
  
   render(){
