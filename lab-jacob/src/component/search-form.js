@@ -9,7 +9,8 @@ export default class Form extends React.Component {
       searchField: '',
       
   }
-    this.handleEventFilter = this.handleEventFilter.bind(this)
+    this.handleSubRedditInput = this.handleSubRedditInput.bind(this)
+    this.handleLimitInput = this.handleLimitInput.bind(this)
     this.search = this.search.bind(this)
   }
 
@@ -19,20 +20,31 @@ export default class Form extends React.Component {
     })
   }
 
-  search(){
-   return this.state.searchField
-  }
+  handleSubRedditInput(event){}
+
+  handleLimitInput(event){}
+
+
 
   render() {
     return (
       <div>
         <form> 
+        <p>search SubReddit</p>
         <input 
           name='searchField' 
           type = "search" 
-          onChange = {this.handleChange}
+          onChange = {this.handleSubRedditInput}
           value = {this.state.searchField}
         />
+        <p>comments or posts output </p>
+        <input
+          type="text"
+          placeholder="# of comments/posts"
+          id="number-of-posts"
+          value={this.state.limit}
+          onChange={this.handleLimitInput}
+         />
         </form>
       </div>
     )

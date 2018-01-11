@@ -13,19 +13,26 @@ class App extends React.Component {
     this.state = {
       results: [],
     };
+    this.search = this.search.bind(this)
   }
+search(){
+  async function searchReddit(subreddit, limit){
+  let response = await fetch(`http://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
 
-  search(){
-    console.log('====================================');
-    console.log('search function');
-    console.log('====================================');
+  if (response.status !== 200)
+    throw new TypeError('Bad Request')
+
+  let data = await response.json();
+
+  
+  return this.setState({results : data});
   }
-
+}
  
   render(){
     return(
       <div>
-      <h1>REDDIT</h1>
+      <h1>SUB-REDDIT</h1>
       <Form submitSearch={this.search} /> 
       <SearchResults
        results = {this.state.results} /> 

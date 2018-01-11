@@ -1,10 +1,12 @@
 'use strict';
 
+require('babel-core/register')
+require('babel-polyfill')
 const HTMLPlugin = require('html-webpack-plugin');
 const ExtractPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: `${__dirname}/src/main.js`,
+  entry: ['babel-polyfill', `${__dirname}/src/main.js`],
   output: {
     filename: 'bundle.[hash].js',
     path: `${__dirname}/build`,
