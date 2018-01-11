@@ -15,8 +15,10 @@ class App extends React.Component {
     };
     this.search = this.search.bind(this)
   }
-search(){
+search(subreddit, limit){
+  
   async function searchReddit(subreddit, limit){
+
   let response = await fetch(`http://www.reddit.com/r/${subreddit}.json?limit=${limit}`)
 
   if (response.status !== 200)
@@ -24,12 +26,18 @@ search(){
 
   let data = await response.json();
 
-  
-  return this.setState({results : data});
-  }
+  console.log('====================================');
+  console.log(data);
+  console.log('====================================');
+  return data
+ }
+ searchReddit(subreddit, limit)
 }
  
   render(){
+    console.log('====================================');
+    console.log(this.state.results);
+    console.log('====================================');
     return(
       <div>
       <h1>SUB-REDDIT</h1>
