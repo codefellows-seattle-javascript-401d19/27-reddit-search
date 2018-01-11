@@ -1,9 +1,9 @@
 import React from 'react';
 
 class SearchResultList extends React.Component {
-  subRedditList() {
+  showResults() {
     if(!this.props.hasSearched) {
-      return <div></div>
+      return <div>Search for a sub reddit to get results</div>
     }else if(this.props.loading) {
       return <p>Loading Stuffs...</p>
     }else if(this.props.results.length === 0) {
@@ -18,7 +18,7 @@ class SearchResultList extends React.Component {
   render(){
     return (
       <div>
-        {this.subRedditList()}
+        {this.showResults()}
       </div>
     )
   }

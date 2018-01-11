@@ -2,9 +2,10 @@ import React from 'react';
 
 class SearchForm extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = {subReddit: '', limit: 10};
-    this.handleMaxResults = this.handleResults.bind(this);
+    super(props);
+
+    this.state = {subReddit: 'doge', limit: 10};
+    this.handleResults = this.handleResults.bind(this);
     this.search = this.search.bind(this);
 }
 
@@ -12,15 +13,25 @@ class SearchForm extends React.Component {
     this.setState({subReddit: event.target.value, limit: event.target.value});
   }
 
-  search() {
+  // handleChange(event) {
+  //   let { name, value } = event.target;
+
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // }
+
+  search(event) {
+    event.preventDefault();
+
     this.props.submitSearch(this.state.subReddit);
   }
 
   render() {
     return (
       <div>
-        <input type="number" value={this.state.limit} onChange={this.handleResults} />
-        <input type="text" value={this.state.subReddit} onChange={this.handleResults} />
+        <input type='text' name='subReddit' placeholder='subReddit' value={this.state.subReddit} onChange={this.handleResults} placeholder='subReddit' />
+        <input type='number' name='limit' value={this.state.limit} onChange={this.handleResults} min='1' max='100' placeholder='#' />
         <button onClick={this.search}>Search</button>
       </div>
     )

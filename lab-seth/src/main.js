@@ -1,5 +1,3 @@
-'use strict';
-
 import './style/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
@@ -8,7 +6,8 @@ import SearchResultList from './components/search-result-list';
 
 class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+    
     this.state = {
       results: [],
       hasSearched: false,
