@@ -1,6 +1,5 @@
-'use strict';
-
 import React from 'react';
+import superagent from 'superagent';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -8,10 +7,11 @@ class SearchForm extends React.Component {
     this.state = {
       topic: '',
       limit: '',
+      errorExists: false,
     };
     this.handleTopic = this.handleTopic.bind(this);
     this.handleLimit = this.handleLimit.bind(this);
-    this.search = this.search.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleTopic(event) {
@@ -22,24 +22,31 @@ class SearchForm extends React.Component {
     this.setState({limit: event.target.value});
   }
 
-  search() {
-    this.props.submitSearch(this.state.topic, this.state.limit);
+  handleSubmit(event) {
+    event.preventDefault();
+    superagent.get(`http://www.reddit.com/r/${this.state.topic}.json?limit=${this.state.limit}`)
+      .then(response => {
+        this.setState({errorExists: false});
+        this.props.setResults(response.body.data.children);
+      })
+      .catch(error => {
+        this.props.setResults([]);
+        this.setState({errorExists: true});
+      });
   }
 
   render () {
-    return (
-      <div>
-        <label>Topic:</label>
-        <input className={this.props.errorExists ? 'error' : ''} type="text" value={this.state.topic} onChange={this.handleTopic}/>  
+    return <form onSubmit={this.handleSubmit}>
+      <label>Topic:</label>
+      <input className={this.state.errorExists ? 'error' : 'normal'} type="text" name='topic' placeholder='enter subreddit' value={this.state.topic} onChange={this.handleTopic}/>  
         &nbsp;
 
-        <label>Limit:</label>
-        <input type="number" min="1" max="100" value={this.state.limit} onChange={this.handleLimit}/>      
+      <label>Limit:</label>
+      <input type="number" name='limit' placeholder='#' min='0' max='100' value={this.state.limit} onChange={this.handleLimit}/>      
         &nbsp;
 
-        <button onClick={this.search}>Search</button>
-      </div>
-    );
+      <button type='submit'>Search</button>
+    </form>;
   }
 }
 
