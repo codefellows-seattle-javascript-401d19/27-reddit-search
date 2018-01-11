@@ -19,7 +19,7 @@ class SearchResultList extends React.Component {
           <li key={index}>
             <a href={result.url}>
               <h3>{result.title}</h3>
-              <p>{result.ups}</p>
+              <p>Topic Number: {result.ups}</p>
             </a>
           </li>
         )
