@@ -24,7 +24,6 @@ class SearchResultList extends React.Component {
 
 
   render() {
-    console.log(this.props.results);
     return (
       <div>
         <h2>List of Results</h2>

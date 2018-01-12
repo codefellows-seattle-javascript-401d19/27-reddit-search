@@ -13,15 +13,12 @@ class SearchForm extends React.Component {
       hasError: false,
     };
 
+    this.turnBoxRedOnError = this.turnBoxRedOnError.bind(this);
     this.handleTopicTextBox = this.handleTopicTextBox.bind(this);
     this.handleNumbersTextBox = this.handleNumbersTextBox.bind(this);
-    // this.getTopicsFromReddit = this.getTopicsFromReddit.bind(this);
+
     this.search = this.search.bind(this);
   }
-
-  // getTopicsFromReddit(topic, limit) {
-  //   this.props.onSubmit(this.state.topic, this.state.limit);
-  // }
 
   search(event, topic, limit) {
     event.preventDefault();
@@ -42,6 +39,25 @@ class SearchForm extends React.Component {
       });
   }
 
+  turnBoxRedOnError() {
+    if (this.state.hasError) {
+      return <input 
+        className="error"
+        type="text" 
+        value={this.state.topic} 
+        placeholder="Type subreddit board name here" 
+        onChange={this.handleTopicTextBox}
+      />;
+    } else {
+      return <input 
+        type="text" 
+        value={this.state.topic} 
+        placeholder="Type subreddit board name here" 
+        onChange={this.handleTopicTextBox}
+      />;
+    }
+  }
+
 
   handleTopicTextBox(event) {
     this.setState({topic:event.target.value});
@@ -56,12 +72,8 @@ class SearchForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.search}>
-          <input 
-            type="text" 
-            value={this.state.topic} 
-            placeholder="Type subreddit board name here" 
-            onChange={this.handleTopicTextBox}
-          />
+          {this.turnBoxRedOnError()}
+
 
           <input 
             type="number" 
