@@ -5,18 +5,18 @@ class SearchResultList extends React.Component {
 
   topicsList(){
     if (!this.props.hasSearched){
-      return <div></div>
+      return <div></div>;
     } else if (this.props.loading) {
-      return <p>Loading...</p>
-    } else if (this.props.SearchResultsFromReddit.length === 0) {
-      return <p> No results found. </p>
+      return <p>Loading...</p>;
+    } else if (this.props.results.length === 0) {
+      return <p> No results found. </p>;
     } else {
-      return this.props.SearchResultsFromReddit.map((SearchResultsFromReddit, index) => {
+      return this.props.results.map((results, index) => {
         return <div key={index}>
-          <li>Subreddit Title : {SearchResultsFromReddit.data.title}</li>
-          <a href=''></a>
-          <p>Subreddit Topics</p>
-        </div>
+          <li>Subreddit Title : {results.data.title} </li>
+          <a href={results.data.url}>URL</a>
+          <p>Up votes : {results.data.ups} </p>
+        </div>;
       });
     }
 
@@ -24,6 +24,7 @@ class SearchResultList extends React.Component {
 
 
   render() {
+    console.log(this.props.results);
     return (
       <div>
         <h2>List of Results</h2>
@@ -31,7 +32,7 @@ class SearchResultList extends React.Component {
           {this.topicsList()}
         </ul>
       </div>
-    )
+    );
   }
 }
 
