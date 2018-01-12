@@ -34,7 +34,7 @@ class SearchForm extends React.Component {
 		return ( 
 			<div id="reddit-search">
 				<form onSubmit={this.search}>
-					<p><input id="subreddit-search" type="text" 
+					<p><input className={this.state.className} id="subreddit-search" type="text" 
 							placeholder="Which Sub-Reddit??" 
 							value={this.state.subReddit} 
 							onChange ={this.handleSubReddit}

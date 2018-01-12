@@ -27,7 +27,7 @@ class App extends React.Component {
 			this.setState({ results: foo, loading: false, searchDone: true })
 			})
 			.catch((error) => {
-				this.setState({loading: false, searchDone: true, error: true})
+				this.setState({loading: false, searchDone: true, error: true, className: 'invalid-result'})
 				console.error(error);
 			});
 	}
