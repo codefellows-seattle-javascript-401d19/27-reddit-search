@@ -1,0 +1,10 @@
+$errorColor: red;
+$mauve: #c48cc4;
+
+.error {
+  border: 1px solid $errorColor;
+}
+
+body {
+  background-color: $mauve;
+}
