@@ -7,7 +7,7 @@ class SearchResultList extends React.Component {
 				return <div></div>
 			} else if (this.props.loading) {
 				return <p> Scrubbing trolls...</p>
-			} else if (this.props.error) {
+			} else if (this.props.error === true) {
 				console.log('made it to error',this.state);
 				return <p>No topics.</p>
 		} else if (this.props.topics.length === 0) {
