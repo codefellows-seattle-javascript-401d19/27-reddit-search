@@ -36,3 +36,4 @@
       "semi": [ "error", "always" ]
     },
     "plugins": ["react"]
+  }

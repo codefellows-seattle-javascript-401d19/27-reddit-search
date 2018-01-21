@@ -26,6 +26,7 @@ class App extends React.Component {
           topics: response.body.data.children,
         });
       });
+      console.log(    console.log(superagent.get(`https://www.reddit.com/r/${topic}.json?limit=${limit}`)))
   }
 
   setResults(newResults) {
