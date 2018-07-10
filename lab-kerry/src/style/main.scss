@@ -1,0 +1,25 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #36d3a9;
+$secondary-color:rgb(157, 20, 184);
+
+body {
+  font: 100% $font-stack;
+	color: $secondary-color;
+	background-color: $primary-color;
+	text-align: center;
+}
+
+#reddit-search {
+	margin: 0px;
+	padding: 0px;
+}
+
+input {
+	// border-color: red;
+	font-weight: bold;
+	text-align: center;
+}
+
+.invalid-result {
+	border-color: red;
+}
