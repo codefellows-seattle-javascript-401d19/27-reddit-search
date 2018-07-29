@@ -1,4 +1,14 @@
 {
   "presets": ["es2015", "react"],
-  "plugins": ["transform-object-rest-spread", "transform-class-properties"]
+  "plugins": [
+    "transform-object-rest-spread", 
+    "transform-class-properties"   
+    // ["@babel/plugin-transform-react-jsx", 
+    //   {
+    //     "pragma": "dom", // default pragma is React.createElement
+    //     "pragmaFrag": "DomFrag", // default is React.Fragment
+    //     "throwIfNamespace": false // defaults to true
+    //   }
+    // ]
+  ]
 }

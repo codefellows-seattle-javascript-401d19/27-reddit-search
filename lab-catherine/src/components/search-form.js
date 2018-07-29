@@ -1,14 +1,14 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import superagent from 'superagent';
 
-export default class SearchForm extends React.Component {
+export default class SearchForm extends Component {
   state = {
     topic: '',
     limit: '',
     errorExists: false,
   };
 
-  handleTopic = ({ target: { value } }) => this.setState({ topic: value });
+  handleTopic = ({target: { value }}) => this.setState({topic: value});
 
   handleLimit = ({target: {value}}) => this.setState({limit: value});
   
@@ -36,17 +36,19 @@ export default class SearchForm extends React.Component {
       state: {errorExists, topic, limit},
     } = this;
     return (
-    <form onSubmit={handleSubmit}>
-      <label>Topic:</label>
-      <input className={errorExists ? 'error' : 'normal'} type="text" name='topic' placeholder='enter subreddit' value={topic} onChange={handleTopic}/>  
-        &nbsp;
+      <Fragment>
+        <form onSubmit={handleSubmit}>
+          <label>Topic:</label>
+          <input className={errorExists ? 'error' : 'normal'} type="text" name='topic' placeholder='enter subreddit' value={topic} onChange={handleTopic}/>  
+            &nbsp;
 
-      <label>Limit:</label>
-      <input type="number" name='limit' placeholder='#' min='0' max='100' value={limit} onChange={handleLimit}/>      
-        &nbsp;
+          <label>Limit:</label>
+          <input type="number" name='limit' placeholder='#' min='0' max='100' value={limit} onChange={handleLimit}/>      
+            &nbsp;
 
-      <button type='submit'>Search</button>
-    </form>
+          <button type='submit'>Search</button>
+        </form>
+      </Fragment>
     );
   }
 }

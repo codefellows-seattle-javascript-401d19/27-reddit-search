@@ -1,32 +1,28 @@
 import './style/main.scss';
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
 import SearchForm from './components/search-form';
 import SearchResultList from './components/search-result-list';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      topics: [],
-    };
-
-    this.setResults = this.setResults.bind(this);
+  state = {
+    topics: [],
   }
 
-
-  setResults(topics) {
-    this.setState({topics: topics});
-  }
-
+  setResults = (topics) => this.setState({topics});
+  
   render() {
-    return <div>
-      <h1>Search Reddit!</h1>
-      <SearchForm topics={this.state.topics} setResults={this.setResults}/>
-      <SearchResultList
-        topics={this.state.topics}
-      />
-    </div>;
+    const {
+      setResults,
+      state: {topics},
+    } = this;
+    return (
+      <Fragment>
+        <h1>Search Reddit!</h1>
+        <SearchForm topics={topics} setResults={setResults}/>
+        <SearchResultList topics={topics}/>
+      </Fragment>
+    );
   }
 }
 
