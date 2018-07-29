@@ -15,7 +15,11 @@
     "__TITLE__": false,
     "__DEBUG__": false
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "esnext"
+  ],
   "parserOptions": {
     "sourceType": "module",
     "ecmaVersion": 6,
@@ -28,12 +32,40 @@
   "rules": {
     "no-console": "off",
     "no-unused-vars": "off",
-    "indent": [ "error", 2, { "SwitchCase": 1 } ],
-    "react/prop-types": [0],
-    "quotes": ["error", "single", { "allowTemplateLiterals": true }],
-    "space-infix-ops": ["error", {"int32Hint": false}],
-    "comma-dangle": ["error", "always-multiline"],
-    "semi": [ "error", "always" ]
+    "no-invalid-this": "off",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "react/prop-types": [
+      0
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "space-infix-ops": [
+      "error",
+      {
+        "int32Hint": false
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
   },
-  "plugins": ["react"]
+  "plugins": [
+    "react"
+  ]
 }
