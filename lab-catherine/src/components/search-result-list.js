@@ -1,6 +1,7 @@
 'use strict';
 
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 const SearchResultList = ({ topics }) => (
   <Fragment>
@@ -12,5 +13,9 @@ const SearchResultList = ({ topics }) => (
     )) }
   </Fragment>
 );
+
+SearchResultList.propTypes = {
+  topics: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default SearchResultList;

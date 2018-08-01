@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import superagent from 'superagent';
+import PropTypes from 'prop-types';
 
 const SearchForm = ({ handleTopic, handleLimit, handleSubmit, errorExists }) => (
   <Fragment>
@@ -29,5 +30,12 @@ const SearchForm = ({ handleTopic, handleLimit, handleSubmit, errorExists }) => 
     </form>
   </Fragment>
 );
+
+SearchForm.propTypes = {
+  handleTopic: PropTypes.func.isRequired,
+  handleLimit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  errorExists: PropTypes.bool.isRequired,
+};
 
 export default SearchForm;
