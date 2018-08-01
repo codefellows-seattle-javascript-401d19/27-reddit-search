@@ -1,20 +1,16 @@
 'use strict';
 
-import React, {Component, Fragment} from 'react';
+import React, { Fragment } from 'react';
 
-export default class SearchResultList extends Component {
-  subRedditList = () => this.props.topics.map((result, index) => (
-    <div className="sub-reddit" key={index}>
-      <a target="blank" href={result.data.url}>{result.data.title}<p>Up votes: {result.data.ups}</p></a>
-    </div>
-  ))
+const SearchResultList = ({ topics }) => (
+  <Fragment>
+    <h3 className={topics.length ? 'isDisplayed' : ''} >List of Reddit Topics:</h3>
+    { topics.map((topic, index) => (
+      <div className='sub-reddit' key={`topic-${index}`}>
+        <a target='blank' href={ topic.data.url }>{ topic.data.title }<p>Up votes: { topic.data.ups }</p></a>
+      </div>
+    )) }
+  </Fragment>
+);
 
-  render() {
-    return (
-      <Fragment>
-        <h1>List of Reddit Topics:</h1>
-        {this.subRedditList()}
-      </Fragment>
-    );
-  }
-}
+export default SearchResultList;

@@ -1,16 +1,16 @@
-import React, {Component, Fragment} from 'react';
+import React, { Fragment } from 'react';
 import superagent from 'superagent';
 
-const SearchForm = ({handleTopic, handleLimit, handleSubmit, errorExists}) => (
+const SearchForm = ({ handleTopic, handleLimit, handleSubmit, errorExists }) => (
   <Fragment>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={ handleSubmit }>
       <label>Topic:</label>
       <input 
-        className={errorExists ? 'error' : 'normal'} 
+        className={ errorExists ? 'error' : 'normal' } 
         type='text'
         name='topic' 
         placeholder='enter subreddit' 
-        onChange={handleTopic}
+        onChange={ handleTopic }
       />  
             &nbsp;
 
@@ -21,7 +21,7 @@ const SearchForm = ({handleTopic, handleLimit, handleSubmit, errorExists}) => (
         placeholder='#' 
         min='0' 
         max='100' 
-        onChange={handleLimit}
+        onChange={ handleLimit }
       />      
             &nbsp;
 

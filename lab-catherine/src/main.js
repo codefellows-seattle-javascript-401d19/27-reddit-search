@@ -1,12 +1,12 @@
 import './style/main.scss';
-import React, {Fragment} from 'react';
+import React, { Fragment, Component } from 'react';
 import ReactDOM from 'react-dom';
 import superagent from 'superagent';
 
 import SearchForm from './components/search-form';
 import SearchResultList from './components/search-result-list';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +17,7 @@ class App extends React.Component {
     };
   }
 
-  handleTopic = (event) => this.setState({ topic: event.target.value});
+  handleTopic = (event) => this.setState({ topic: event.target.value });
 
   handleLimit = (event) => this.setState({ limit: event.target.value });
 
@@ -36,26 +36,25 @@ class App extends React.Component {
         this.setState({ errorExists: true });
       });
   }
-
+ 
   render() {
-    console.log(this.state);
     const {
       handleTopic,
       handleLimit,
       handleSubmit,
-      state: {topics, inputValue, limit, errorExists},
+      state: { topics, inputValue, limit, errorExists },
     } = this;
 
     return (
       <Fragment>
         <h1>Search Reddit!</h1>
         <SearchForm 
-          handleTopic={handleTopic}
-          handleLimit={handleLimit}
-          handleSubmit={handleSubmit}
-          errorExists={errorExists}
+          handleTopic={ handleTopic }
+          handleLimit={ handleLimit }
+          handleSubmit={ handleSubmit }
+          errorExists={ errorExists }
         />
-        <SearchResultList topics={topics}/>
+        <SearchResultList topics={ topics }/>
       </Fragment>
     );
   }

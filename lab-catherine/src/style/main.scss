@@ -16,6 +16,10 @@ body {
   margin-left: 40px;
 }
 
+h3 {
+  display: none;
+}
+
 h2 {
   list-style: none;
   font-size: 15px;
@@ -70,4 +74,8 @@ button:hover {
 
 .error {
   border: 2px solid red;
+}
+
+.isDisplayed {
+  display: block;
 }
